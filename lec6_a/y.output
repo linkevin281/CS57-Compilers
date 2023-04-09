@@ -1,0 +1,409 @@
+Grammar
+
+    0 $accept: MAKEFILE $end
+
+    1 MAKEFILE: DECLARATION TARGET CLEAN
+
+    2 DECLARATION: FNAME '=' FNAME
+    3            | FNAME '=' FNAME '.' EXT
+
+    4 FPATH: '$' '(' FNAME ')' '.' EXT
+    5      | FNAME '.' EXT
+
+    6 FPATHS: FPATHS FPATH
+    7       | FPATH
+
+    8 TARGET: FPATH ':' FPATHS '\n' COMMANDS
+
+    9 FLAGS: FLAGS FLAG
+   10      | FLAG
+
+   11 COMMAND: TAB COMND FLAGS FPATHS '\n'
+
+   12 COMMANDS: COMMANDS COMMAND
+   13         | COMMAND
+
+   14 CLEAN: FNAME ':' '\n' COMMANDS
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    '\n' (10) 8 11 14
+    '$' (36) 4
+    '(' (40) 4
+    ')' (41) 4
+    '.' (46) 3 4 5
+    ':' (58) 8 14
+    '=' (61) 2 3
+    error (256)
+    FNAME (258) 2 3 4 5 14
+    FLAG (259) 9 10
+    EXT (260) 3 4 5
+    TAB (261) 11
+    COMND (262) 11
+
+
+Nonterminals, with rules where they appear
+
+    $accept (15)
+        on left: 0
+    MAKEFILE (16)
+        on left: 1
+        on right: 0
+    DECLARATION (17)
+        on left: 2 3
+        on right: 1
+    FPATH (18)
+        on left: 4 5
+        on right: 6 7 8
+    FPATHS (19)
+        on left: 6 7
+        on right: 6 8 11
+    TARGET (20)
+        on left: 8
+        on right: 1
+    FLAGS (21)
+        on left: 9 10
+        on right: 9 11
+    COMMAND (22)
+        on left: 11
+        on right: 12 13
+    COMMANDS (23)
+        on left: 12 13
+        on right: 8 12 14
+    CLEAN (24)
+        on left: 14
+        on right: 1
+
+
+State 0
+
+    0 $accept: • MAKEFILE $end
+
+    FNAME  shift, and go to state 1
+
+    MAKEFILE     go to state 2
+    DECLARATION  go to state 3
+
+
+State 1
+
+    2 DECLARATION: FNAME • '=' FNAME
+    3            | FNAME • '=' FNAME '.' EXT
+
+    '='  shift, and go to state 4
+
+
+State 2
+
+    0 $accept: MAKEFILE • $end
+
+    $end  shift, and go to state 5
+
+
+State 3
+
+    1 MAKEFILE: DECLARATION • TARGET CLEAN
+
+    FNAME  shift, and go to state 6
+    '$'    shift, and go to state 7
+
+    FPATH   go to state 8
+    TARGET  go to state 9
+
+
+State 4
+
+    2 DECLARATION: FNAME '=' • FNAME
+    3            | FNAME '=' • FNAME '.' EXT
+
+    FNAME  shift, and go to state 10
+
+
+State 5
+
+    0 $accept: MAKEFILE $end •
+
+    $default  accept
+
+
+State 6
+
+    5 FPATH: FNAME • '.' EXT
+
+    '.'  shift, and go to state 11
+
+
+State 7
+
+    4 FPATH: '$' • '(' FNAME ')' '.' EXT
+
+    '('  shift, and go to state 12
+
+
+State 8
+
+    8 TARGET: FPATH • ':' FPATHS '\n' COMMANDS
+
+    ':'  shift, and go to state 13
+
+
+State 9
+
+    1 MAKEFILE: DECLARATION TARGET • CLEAN
+
+    FNAME  shift, and go to state 14
+
+    CLEAN  go to state 15
+
+
+State 10
+
+    2 DECLARATION: FNAME '=' FNAME •
+    3            | FNAME '=' FNAME • '.' EXT
+
+    '.'  shift, and go to state 16
+
+    $default  reduce using rule 2 (DECLARATION)
+
+
+State 11
+
+    5 FPATH: FNAME '.' • EXT
+
+    EXT  shift, and go to state 17
+
+
+State 12
+
+    4 FPATH: '$' '(' • FNAME ')' '.' EXT
+
+    FNAME  shift, and go to state 18
+
+
+State 13
+
+    8 TARGET: FPATH ':' • FPATHS '\n' COMMANDS
+
+    FNAME  shift, and go to state 6
+    '$'    shift, and go to state 7
+
+    FPATH   go to state 19
+    FPATHS  go to state 20
+
+
+State 14
+
+   14 CLEAN: FNAME • ':' '\n' COMMANDS
+
+    ':'  shift, and go to state 21
+
+
+State 15
+
+    1 MAKEFILE: DECLARATION TARGET CLEAN •
+
+    $default  reduce using rule 1 (MAKEFILE)
+
+
+State 16
+
+    3 DECLARATION: FNAME '=' FNAME '.' • EXT
+
+    EXT  shift, and go to state 22
+
+
+State 17
+
+    5 FPATH: FNAME '.' EXT •
+
+    $default  reduce using rule 5 (FPATH)
+
+
+State 18
+
+    4 FPATH: '$' '(' FNAME • ')' '.' EXT
+
+    ')'  shift, and go to state 23
+
+
+State 19
+
+    7 FPATHS: FPATH •
+
+    $default  reduce using rule 7 (FPATHS)
+
+
+State 20
+
+    6 FPATHS: FPATHS • FPATH
+    8 TARGET: FPATH ':' FPATHS • '\n' COMMANDS
+
+    FNAME  shift, and go to state 6
+    '$'    shift, and go to state 7
+    '\n'   shift, and go to state 24
+
+    FPATH  go to state 25
+
+
+State 21
+
+   14 CLEAN: FNAME ':' • '\n' COMMANDS
+
+    '\n'  shift, and go to state 26
+
+
+State 22
+
+    3 DECLARATION: FNAME '=' FNAME '.' EXT •
+
+    $default  reduce using rule 3 (DECLARATION)
+
+
+State 23
+
+    4 FPATH: '$' '(' FNAME ')' • '.' EXT
+
+    '.'  shift, and go to state 27
+
+
+State 24
+
+    8 TARGET: FPATH ':' FPATHS '\n' • COMMANDS
+
+    TAB  shift, and go to state 28
+
+    COMMAND   go to state 29
+    COMMANDS  go to state 30
+
+
+State 25
+
+    6 FPATHS: FPATHS FPATH •
+
+    $default  reduce using rule 6 (FPATHS)
+
+
+State 26
+
+   14 CLEAN: FNAME ':' '\n' • COMMANDS
+
+    TAB  shift, and go to state 28
+
+    COMMAND   go to state 29
+    COMMANDS  go to state 31
+
+
+State 27
+
+    4 FPATH: '$' '(' FNAME ')' '.' • EXT
+
+    EXT  shift, and go to state 32
+
+
+State 28
+
+   11 COMMAND: TAB • COMND FLAGS FPATHS '\n'
+
+    COMND  shift, and go to state 33
+
+
+State 29
+
+   13 COMMANDS: COMMAND •
+
+    $default  reduce using rule 13 (COMMANDS)
+
+
+State 30
+
+    8 TARGET: FPATH ':' FPATHS '\n' COMMANDS •
+   12 COMMANDS: COMMANDS • COMMAND
+
+    TAB  shift, and go to state 28
+
+    $default  reduce using rule 8 (TARGET)
+
+    COMMAND  go to state 34
+
+
+State 31
+
+   12 COMMANDS: COMMANDS • COMMAND
+   14 CLEAN: FNAME ':' '\n' COMMANDS •
+
+    TAB  shift, and go to state 28
+
+    $default  reduce using rule 14 (CLEAN)
+
+    COMMAND  go to state 34
+
+
+State 32
+
+    4 FPATH: '$' '(' FNAME ')' '.' EXT •
+
+    $default  reduce using rule 4 (FPATH)
+
+
+State 33
+
+   11 COMMAND: TAB COMND • FLAGS FPATHS '\n'
+
+    FLAG  shift, and go to state 35
+
+    FLAGS  go to state 36
+
+
+State 34
+
+   12 COMMANDS: COMMANDS COMMAND •
+
+    $default  reduce using rule 12 (COMMANDS)
+
+
+State 35
+
+   10 FLAGS: FLAG •
+
+    $default  reduce using rule 10 (FLAGS)
+
+
+State 36
+
+    9 FLAGS: FLAGS • FLAG
+   11 COMMAND: TAB COMND FLAGS • FPATHS '\n'
+
+    FNAME  shift, and go to state 6
+    FLAG   shift, and go to state 37
+    '$'    shift, and go to state 7
+
+    FPATH   go to state 19
+    FPATHS  go to state 38
+
+
+State 37
+
+    9 FLAGS: FLAGS FLAG •
+
+    $default  reduce using rule 9 (FLAGS)
+
+
+State 38
+
+    6 FPATHS: FPATHS • FPATH
+   11 COMMAND: TAB COMND FLAGS FPATHS • '\n'
+
+    FNAME  shift, and go to state 6
+    '$'    shift, and go to state 7
+    '\n'   shift, and go to state 39
+
+    FPATH  go to state 25
+
+
+State 39
+
+   11 COMMAND: TAB COMND FLAGS FPATHS '\n' •
+
+    $default  reduce using rule 11 (COMMAND)
