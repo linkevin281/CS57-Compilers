@@ -1,0 +1,41 @@
+extern void (int); 
+extern int ();
+
+int (int ){ 
+
+        int ;
+        int ;
+        int ;
+
+         =  + ; 
+         =  * ; 
+
+         = ;
+        if ( > ) {
+                ();
+        }
+        else
+                ();
+
+        while ( < ){
+                int ;
+                 =  + ;
+                 =  + ;
+                 = ;
+        }
+
+        return( + );
+} 
+Prog:
+ Func: func
+  Var: a
+  Stmt: 
+   Block:
+    Stmt: 
+     Decl: loc1
+    Stmt: 
+     Decl: loc2
+    Stmt: 
+     Decl: i
+    Stmt: 
+     Asgn: lhs
