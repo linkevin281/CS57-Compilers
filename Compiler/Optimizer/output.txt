@@ -1,0 +1,4025 @@
+clear
+[H[2J[3Jclang++ `llvm-config-15 --cxxflags --ldflags --libs core` -I /usr/include/llvm-c-15/ -ggdb -gdwarf-4 -g -o optimize.out optimize.c++ local_optimization.c++
+./optimize.out ../test_files/llvm_test/testcustom.ll
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %2 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %3 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %4 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %5 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %6 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %7 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   store i32 %0, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 %0
+[subexpr_elim, 594]     Operand 1:   %3 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   store i32 10, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 10
+[subexpr_elim, 594]     Operand 1:   %6 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %9 = add nsw i32 %8, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8  %8 = load i32, ptr %3, align 4i32 10 to map
+[subexpr_elim, 583] Inst:   store i32 %9, ptr %4, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %9 = add nsw i32 %8, 10
+[subexpr_elim, 594]     Operand 1:   %4 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   %10 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 618]      REPLACED all uses of   %10 = load i32, ptr %3, align 4 with   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 583] Inst:   %11 = load i32, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %6 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %6 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %12 = add nsw i32 %8, %11
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1:   %11 = load i32, ptr %6, align 4
+[subexpr_elim, 655] Added 8  %8 = load i32, ptr %3, align 4  %11 = load i32, ptr %6, align 4 to map
+[subexpr_elim, 583] Inst:   store i32 %12, ptr %5, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %12 = add nsw i32 %8, %11
+[subexpr_elim, 594]     Operand 1:   %5 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   %13 = load i32, ptr %4, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %4 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %4 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %14 = load i32, ptr %5, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %5 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %5 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %15 = add nsw i32 15, 5
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0: i32 15
+[subexpr_elim, 594]     Operand 1: i32 5
+[subexpr_elim, 655] Added 8i32 15i32 5 to map
+[subexpr_elim, 583] Inst:   store i32 %15, ptr %7, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %15 = add nsw i32 15, 5
+[subexpr_elim, 594]     Operand 1:   %7 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   store i32 10, ptr %4, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 10
+[subexpr_elim, 594]     Operand 1:   %4 = alloca i32, align 4
+[subexpr_elim, 636] Found store {  store i32 10, ptr %4, align 4} to load {  %13 = load i32, ptr %4, align 4}, removed load
+[subexpr_elim, 583] Inst:   br label %16
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+16:                                               ; preds = %19, %1
+  %17 = load i32, ptr %3, align 4
+  %18 = icmp slt i32 %17, 100
+  br i1 %18, label %19, label %26
+
+[subexpr_elim, 655] Added 2
+16:                                               ; preds = %19, %1
+  %17 = load i32, ptr %3, align 4
+  %18 = icmp slt i32 %17, 100
+  br i1 %18, label %19, label %26
+ to map
+[subexpr_elim, 659] change: 1
+[local_optimizer, 133] change: 1
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %2 = alloca i32, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %2 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %3 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %4 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %5 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %6 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %7 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  store i32 %0, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 %0}
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 10, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %8 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %9 = add nsw i32 %8, 10}
+[dead_code_elim, 701]   Found new instruction:   %9 = add nsw i32 %8, 10
+[dead_code_elim, 707]     Operand: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %9, ptr %4, align 4}
+[dead_code_elim, 707]     Operand: {  %9 = add nsw i32 %8, 10}
+[dead_code_elim, 707]     Operand: {  %4 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %10 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %10 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %11 = load i32, ptr %6, align 4}
+[dead_code_elim, 701]   Found new instruction:   %11 = load i32, ptr %6, align 4
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %12 = add nsw i32 %8, %11}
+[dead_code_elim, 701]   Found new instruction:   %12 = add nsw i32 %8, %11
+[dead_code_elim, 707]     Operand: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {  %11 = load i32, ptr %6, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 %12, ptr %5, align 4}
+[dead_code_elim, 707]     Operand: {  %12 = add nsw i32 %8, %11}
+[dead_code_elim, 707]     Operand: {  %5 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %13 = load i32, ptr %4, align 4}
+[dead_code_elim, 701]   Found new instruction:   %13 = load i32, ptr %4, align 4
+[dead_code_elim, 707]     Operand: {  %4 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %14 = load i32, ptr %5, align 4}
+[dead_code_elim, 701]   Found new instruction:   %14 = load i32, ptr %5, align 4
+[dead_code_elim, 707]     Operand: {  %5 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %15 = add nsw i32 15, 5}
+[dead_code_elim, 701]   Found new instruction:   %15 = add nsw i32 15, 5
+[dead_code_elim, 707]     Operand: {i32 15}
+[dead_code_elim, 707]     Operand: {i32 5}
+[dead_code_elim, 697] Instruction: {  store i32 %15, ptr %7, align 4}
+[dead_code_elim, 707]     Operand: {  %15 = add nsw i32 15, 5}
+[dead_code_elim, 707]     Operand: {  %7 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 10, ptr %4, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 707]     Operand: {  %4 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %16}
+[dead_code_elim, 707]     Operand: {
+16:                                               ; preds = %19, %1
+  %17 = load i32, ptr %3, align 4
+  %18 = icmp slt i32 %17, 100
+  br i1 %18, label %19, label %26
+}
+[dead_code_elim, 718] Operand:   %15 = add nsw i32 15, 5, uses: 1
+[dead_code_elim, 718] Operand:   %12 = add nsw i32 %8, %11, uses: 1
+[dead_code_elim, 718] Operand:   %11 = load i32, ptr %6, align 4, uses: 1
+[dead_code_elim, 718] Operand:   %14 = load i32, ptr %5, align 4, uses: 0
+[dead_code_elim, 718] Operand:   %10 = load i32, ptr %3, align 4, uses: 0
+[dead_code_elim, 718] Operand:   %9 = add nsw i32 %8, 10, uses: 1
+[dead_code_elim, 718] Operand:   %12 = load i32, ptr %4, align 4, uses: 0
+[dead_code_elim, 718] Operand:   %8 = load i32, ptr %3, align 4, uses: 2
+[local_optimizer, 135] change: 1
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %2 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %3 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %4 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %5 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %6 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %7 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  store i32 %0, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  store i32 10, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  %8 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %9 = add nsw i32 %8, 10}
+[constant_folding, 790]   Found binary op:   %9 = add nsw i32 %8, 10
+[constant_folding, 787] Instruction: {  store i32 %9, ptr %4, align 4}
+[constant_folding, 787] Instruction: {  %10 = load i32, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  %11 = add nsw i32 %8, %10}
+[constant_folding, 790]   Found binary op:   %11 = add nsw i32 %8, %10
+[constant_folding, 787] Instruction: {  store i32 %11, ptr %5, align 4}
+[constant_folding, 787] Instruction: {  %12 = add nsw i32 15, 5}
+[constant_folding, 790]   Found binary op:   %12 = add nsw i32 15, 5
+[constant_folding, 797] WE HAVE TWO CONSTANTS
+[constant_folding, 801]     Adding i32 15 and i32 5
+[constant_folding, 787] Instruction: {  store i32 20, ptr %7, align 4}
+[constant_folding, 787] Instruction: {  store i32 10, ptr %4, align 4}
+[constant_folding, 787] Instruction: {  br label %13}
+[local_optimizer, 137] change: 1
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     store i32 %0, ptr %3, align 4
+[print_module, 93]     store i32 10, ptr %6, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %4, align 4
+[print_module, 93]     %10 = load i32, ptr %6, align 4
+[print_module, 93]     %11 = add nsw i32 %8, %10
+[print_module, 93]     store i32 %11, ptr %5, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %12
+[print_module, 89] BB: 
+[print_module, 93]     %13 = load i32, ptr %3, align 4
+[print_module, 93]     %14 = icmp slt i32 %13, 100
+[print_module, 93]     br i1 %14, label %15, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %16 = load i32, ptr %3, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 5
+[print_module, 93]     store i32 %17, ptr %3, align 4
+[print_module, 93]     %18 = load i32, ptr %6, align 4
+[print_module, 93]     %19 = add nsw i32 %18, 10
+[print_module, 93]     store i32 %19, ptr %6, align 4
+[print_module, 93]     %20 = load i32, ptr %4, align 4
+[print_module, 93]     %21 = add nsw i32 %20, 10
+[print_module, 93]     store i32 %21, ptr %7, align 4
+[print_module, 93]     br label %12, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %7, align 4
+[print_module, 93]     %24 = icmp sgt i32 %23, 100
+[print_module, 93]     br i1 %24, label %25, label %27
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %26, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     %29 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %29
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %2 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %3 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %4 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %5 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %6 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %7 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   store i32 %0, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 %0
+[subexpr_elim, 594]     Operand 1:   %3 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   store i32 10, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 10
+[subexpr_elim, 594]     Operand 1:   %6 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %9 = add nsw i32 %8, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8  %8 = load i32, ptr %3, align 4i32 10 to map
+[subexpr_elim, 583] Inst:   store i32 %9, ptr %4, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %9 = add nsw i32 %8, 10
+[subexpr_elim, 594]     Operand 1:   %4 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   %10 = load i32, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %6 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %6 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %11 = add nsw i32 %8, %10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1:   %10 = load i32, ptr %6, align 4
+[subexpr_elim, 655] Added 8  %8 = load i32, ptr %3, align 4  %10 = load i32, ptr %6, align 4 to map
+[subexpr_elim, 583] Inst:   store i32 %11, ptr %5, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %11 = add nsw i32 %8, %10
+[subexpr_elim, 594]     Operand 1:   %5 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   store i32 20, ptr %7, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 20
+[subexpr_elim, 594]     Operand 1:   %7 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   store i32 10, ptr %4, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 10
+[subexpr_elim, 594]     Operand 1:   %4 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %12
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+12:                                               ; preds = %15, %1
+  %13 = load i32, ptr %3, align 4
+  %14 = icmp slt i32 %13, 100
+  br i1 %14, label %15, label %22
+
+[subexpr_elim, 655] Added 2
+12:                                               ; preds = %15, %1
+  %13 = load i32, ptr %3, align 4
+  %14 = icmp slt i32 %13, 100
+  br i1 %14, label %15, label %22
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %2 = alloca i32, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %2 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %3 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %4 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %5 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %6 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %7 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  store i32 %0, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 %0}
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 10, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %8 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %9 = add nsw i32 %8, 10}
+[dead_code_elim, 701]   Found new instruction:   %9 = add nsw i32 %8, 10
+[dead_code_elim, 707]     Operand: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %9, ptr %4, align 4}
+[dead_code_elim, 707]     Operand: {  %9 = add nsw i32 %8, 10}
+[dead_code_elim, 707]     Operand: {  %4 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %10 = load i32, ptr %6, align 4}
+[dead_code_elim, 701]   Found new instruction:   %10 = load i32, ptr %6, align 4
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %11 = add nsw i32 %8, %10}
+[dead_code_elim, 701]   Found new instruction:   %11 = add nsw i32 %8, %10
+[dead_code_elim, 707]     Operand: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {  %10 = load i32, ptr %6, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 %11, ptr %5, align 4}
+[dead_code_elim, 707]     Operand: {  %11 = add nsw i32 %8, %10}
+[dead_code_elim, 707]     Operand: {  %5 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 20, ptr %7, align 4}
+[dead_code_elim, 707]     Operand: {i32 20}
+[dead_code_elim, 707]     Operand: {  %7 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 10, ptr %4, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 707]     Operand: {  %4 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %12}
+[dead_code_elim, 707]     Operand: {
+12:                                               ; preds = %15, %1
+  %13 = load i32, ptr %3, align 4
+  %14 = icmp slt i32 %13, 100
+  br i1 %14, label %15, label %22
+}
+[dead_code_elim, 718] Operand:   %11 = add nsw i32 %8, %10, uses: 1
+[dead_code_elim, 718] Operand:   %10 = load i32, ptr %6, align 4, uses: 1
+[dead_code_elim, 718] Operand:   %9 = add nsw i32 %8, 10, uses: 1
+[dead_code_elim, 718] Operand:   %8 = load i32, ptr %3, align 4, uses: 2
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %2 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %3 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %4 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %5 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %6 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %7 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  store i32 %0, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  store i32 10, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  %8 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %9 = add nsw i32 %8, 10}
+[constant_folding, 790]   Found binary op:   %9 = add nsw i32 %8, 10
+[constant_folding, 787] Instruction: {  store i32 %9, ptr %4, align 4}
+[constant_folding, 787] Instruction: {  %10 = load i32, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  %11 = add nsw i32 %8, %10}
+[constant_folding, 790]   Found binary op:   %11 = add nsw i32 %8, %10
+[constant_folding, 787] Instruction: {  store i32 %11, ptr %5, align 4}
+[constant_folding, 787] Instruction: {  store i32 20, ptr %7, align 4}
+[constant_folding, 787] Instruction: {  store i32 10, ptr %4, align 4}
+[constant_folding, 787] Instruction: {  br label %12}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     store i32 %0, ptr %3, align 4
+[print_module, 93]     store i32 10, ptr %6, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %4, align 4
+[print_module, 93]     %10 = load i32, ptr %6, align 4
+[print_module, 93]     %11 = add nsw i32 %8, %10
+[print_module, 93]     store i32 %11, ptr %5, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %12
+[print_module, 89] BB: 
+[print_module, 93]     %13 = load i32, ptr %3, align 4
+[print_module, 93]     %14 = icmp slt i32 %13, 100
+[print_module, 93]     br i1 %14, label %15, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %16 = load i32, ptr %3, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 5
+[print_module, 93]     store i32 %17, ptr %3, align 4
+[print_module, 93]     %18 = load i32, ptr %6, align 4
+[print_module, 93]     %19 = add nsw i32 %18, 10
+[print_module, 93]     store i32 %19, ptr %6, align 4
+[print_module, 93]     %20 = load i32, ptr %4, align 4
+[print_module, 93]     %21 = add nsw i32 %20, 10
+[print_module, 93]     store i32 %21, ptr %7, align 4
+[print_module, 93]     br label %12, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %7, align 4
+[print_module, 93]     %24 = icmp sgt i32 %23, 100
+[print_module, 93]     br i1 %24, label %25, label %27
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %26, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     %29 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %29
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %13 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %14 = icmp slt i32 %13, 100
+[subexpr_elim, 587]     Opcode: 42
+[subexpr_elim, 594]     Operand 0:   %13 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 100
+[subexpr_elim, 655] Added 42  %13 = load i32, ptr %3, align 4i32 100 to map
+[subexpr_elim, 583] Inst:   br i1 %14, label %15, label %22
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0:   %14 = icmp slt i32 %13, 100
+[subexpr_elim, 594]     Operand 1: 
+22:                                               ; preds = %12
+  %23 = load i32, ptr %7, align 4
+  %24 = icmp sgt i32 %23, 100
+  br i1 %24, label %25, label %27
+
+[subexpr_elim, 594]     Operand 2: 
+15:                                               ; preds = %12
+  %16 = load i32, ptr %3, align 4
+  %17 = add nsw i32 %16, 5
+  store i32 %17, ptr %3, align 4
+  %18 = load i32, ptr %6, align 4
+  %19 = add nsw i32 %18, 10
+  store i32 %19, ptr %6, align 4
+  %20 = load i32, ptr %4, align 4
+  %21 = add nsw i32 %20, 10
+  store i32 %21, ptr %7, align 4
+  br label %12, !llvm.loop !6
+
+[subexpr_elim, 655] Added 2  %14 = icmp slt i32 %13, 100
+22:                                               ; preds = %12
+  %23 = load i32, ptr %7, align 4
+  %24 = icmp sgt i32 %23, 100
+  br i1 %24, label %25, label %27
+
+15:                                               ; preds = %12
+  %16 = load i32, ptr %3, align 4
+  %17 = add nsw i32 %16, 5
+  store i32 %17, ptr %3, align 4
+  %18 = load i32, ptr %6, align 4
+  %19 = add nsw i32 %18, 10
+  store i32 %19, ptr %6, align 4
+  %20 = load i32, ptr %4, align 4
+  %21 = add nsw i32 %20, 10
+  store i32 %21, ptr %7, align 4
+  br label %12, !llvm.loop !6
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %13 = load i32, ptr %3, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %13 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %13 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %14 = icmp slt i32 %13, 100}
+[dead_code_elim, 707]     Operand: {  %13 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 100}
+[dead_code_elim, 697] Instruction: {  br i1 %14, label %15, label %22}
+[dead_code_elim, 707]     Operand: {  %14 = icmp slt i32 %13, 100}
+[dead_code_elim, 707]     Operand: {
+22:                                               ; preds = %12
+  %23 = load i32, ptr %7, align 4
+  %24 = icmp sgt i32 %23, 100
+  br i1 %24, label %25, label %27
+}
+[dead_code_elim, 707]     Operand: {
+15:                                               ; preds = %12
+  %16 = load i32, ptr %3, align 4
+  %17 = add nsw i32 %16, 5
+  store i32 %17, ptr %3, align 4
+  %18 = load i32, ptr %6, align 4
+  %19 = add nsw i32 %18, 10
+  store i32 %19, ptr %6, align 4
+  %20 = load i32, ptr %4, align 4
+  %21 = add nsw i32 %20, 10
+  store i32 %21, ptr %7, align 4
+  br label %12, !llvm.loop !6
+}
+[dead_code_elim, 718] Operand:   %13 = load i32, ptr %3, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %13 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %14 = icmp slt i32 %13, 100}
+[constant_folding, 790]   Found binary op:   %14 = icmp slt i32 %13, 100
+[constant_folding, 787] Instruction: {  br i1 %14, label %15, label %22}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     store i32 %0, ptr %3, align 4
+[print_module, 93]     store i32 10, ptr %6, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %4, align 4
+[print_module, 93]     %10 = load i32, ptr %6, align 4
+[print_module, 93]     %11 = add nsw i32 %8, %10
+[print_module, 93]     store i32 %11, ptr %5, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %12
+[print_module, 89] BB: 
+[print_module, 93]     %13 = load i32, ptr %3, align 4
+[print_module, 93]     %14 = icmp slt i32 %13, 100
+[print_module, 93]     br i1 %14, label %15, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %16 = load i32, ptr %3, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 5
+[print_module, 93]     store i32 %17, ptr %3, align 4
+[print_module, 93]     %18 = load i32, ptr %6, align 4
+[print_module, 93]     %19 = add nsw i32 %18, 10
+[print_module, 93]     store i32 %19, ptr %6, align 4
+[print_module, 93]     %20 = load i32, ptr %4, align 4
+[print_module, 93]     %21 = add nsw i32 %20, 10
+[print_module, 93]     store i32 %21, ptr %7, align 4
+[print_module, 93]     br label %12, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %7, align 4
+[print_module, 93]     %24 = icmp sgt i32 %23, 100
+[print_module, 93]     br i1 %24, label %25, label %27
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %26, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     %29 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %29
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %16 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %17 = add nsw i32 %16, 5
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %16 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 5
+[subexpr_elim, 655] Added 8  %16 = load i32, ptr %3, align 4i32 5 to map
+[subexpr_elim, 583] Inst:   store i32 %17, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %17 = add nsw i32 %16, 5
+[subexpr_elim, 594]     Operand 1:   %3 = alloca i32, align 4
+[subexpr_elim, 636] Found store {  store i32 %17, ptr %3, align 4} to load {  %16 = load i32, ptr %3, align 4}, removed load
+[subexpr_elim, 583] Inst:   %18 = load i32, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %6 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %6 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %19 = add nsw i32 %18, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %18 = load i32, ptr %6, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8  %18 = load i32, ptr %6, align 4i32 10 to map
+[subexpr_elim, 583] Inst:   store i32 %19, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %19 = add nsw i32 %18, 10
+[subexpr_elim, 594]     Operand 1:   %6 = alloca i32, align 4
+[subexpr_elim, 636] Found store {  store i32 %19, ptr %6, align 4} to load {  %18 = load i32, ptr %6, align 4}, removed load
+[subexpr_elim, 583] Inst:   %20 = load i32, ptr %4, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %4 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %4 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %21 = add nsw i32 %20, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %20 = load i32, ptr %4, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8  %20 = load i32, ptr %4, align 4i32 10 to map
+[subexpr_elim, 583] Inst:   store i32 %21, ptr %7, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %21 = add nsw i32 %20, 10
+[subexpr_elim, 594]     Operand 1:   %7 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %12, !llvm.loop !6
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+12:                                               ; preds = %15, %1
+  %13 = load i32, ptr %3, align 4
+  %14 = icmp slt i32 %13, 100
+  br i1 %14, label %15, label %22
+
+[subexpr_elim, 655] Added 2
+12:                                               ; preds = %15, %1
+  %13 = load i32, ptr %3, align 4
+  %14 = icmp slt i32 %13, 100
+  br i1 %14, label %15, label %22
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %16 = load i32, ptr %3, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %16 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %16 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %17 = add nsw i32 %16, 5}
+[dead_code_elim, 701]   Found new instruction:   %17 = add nsw i32 %16, 5
+[dead_code_elim, 707]     Operand: {  %16 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 5}
+[dead_code_elim, 697] Instruction: {  store i32 %17, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {  %17 = add nsw i32 %16, 5}
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %18 = load i32, ptr %6, align 4}
+[dead_code_elim, 701]   Found new instruction:   %18 = load i32, ptr %6, align 4
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %19 = add nsw i32 %18, 10}
+[dead_code_elim, 701]   Found new instruction:   %19 = add nsw i32 %18, 10
+[dead_code_elim, 707]     Operand: {  %18 = load i32, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %19, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {  %19 = add nsw i32 %18, 10}
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %20 = load i32, ptr %4, align 4}
+[dead_code_elim, 701]   Found new instruction:   %20 = load i32, ptr %4, align 4
+[dead_code_elim, 707]     Operand: {  %4 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %21 = add nsw i32 %20, 10}
+[dead_code_elim, 701]   Found new instruction:   %21 = add nsw i32 %20, 10
+[dead_code_elim, 707]     Operand: {  %20 = load i32, ptr %4, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %21, ptr %7, align 4}
+[dead_code_elim, 707]     Operand: {  %21 = add nsw i32 %20, 10}
+[dead_code_elim, 707]     Operand: {  %7 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %12, !llvm.loop !6}
+[dead_code_elim, 707]     Operand: {
+12:                                               ; preds = %15, %1
+  %13 = load i32, ptr %3, align 4
+  %14 = icmp slt i32 %13, 100
+  br i1 %14, label %15, label %22
+}
+[dead_code_elim, 718] Operand:   %21 = add nsw i32 %20, 10, uses: 1
+[dead_code_elim, 718] Operand:   %20 = load i32, ptr %4, align 4, uses: 1
+[dead_code_elim, 718] Operand:   %19 = add nsw i32 %18, 10, uses: 1
+[dead_code_elim, 718] Operand:   %18 = load i32, ptr %6, align 4, uses: 1
+[dead_code_elim, 718] Operand:   %17 = add nsw i32 %16, 5, uses: 1
+[dead_code_elim, 718] Operand:   %16 = load i32, ptr %3, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %16 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %17 = add nsw i32 %16, 5}
+[constant_folding, 790]   Found binary op:   %17 = add nsw i32 %16, 5
+[constant_folding, 787] Instruction: {  store i32 %17, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %18 = load i32, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  %19 = add nsw i32 %18, 10}
+[constant_folding, 790]   Found binary op:   %19 = add nsw i32 %18, 10
+[constant_folding, 787] Instruction: {  store i32 %19, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  %20 = load i32, ptr %4, align 4}
+[constant_folding, 787] Instruction: {  %21 = add nsw i32 %20, 10}
+[constant_folding, 790]   Found binary op:   %21 = add nsw i32 %20, 10
+[constant_folding, 787] Instruction: {  store i32 %21, ptr %7, align 4}
+[constant_folding, 787] Instruction: {  br label %12, !llvm.loop !6}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     store i32 %0, ptr %3, align 4
+[print_module, 93]     store i32 10, ptr %6, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %4, align 4
+[print_module, 93]     %10 = load i32, ptr %6, align 4
+[print_module, 93]     %11 = add nsw i32 %8, %10
+[print_module, 93]     store i32 %11, ptr %5, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %12
+[print_module, 89] BB: 
+[print_module, 93]     %13 = load i32, ptr %3, align 4
+[print_module, 93]     %14 = icmp slt i32 %13, 100
+[print_module, 93]     br i1 %14, label %15, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %16 = load i32, ptr %3, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 5
+[print_module, 93]     store i32 %17, ptr %3, align 4
+[print_module, 93]     %18 = load i32, ptr %6, align 4
+[print_module, 93]     %19 = add nsw i32 %18, 10
+[print_module, 93]     store i32 %19, ptr %6, align 4
+[print_module, 93]     %20 = load i32, ptr %4, align 4
+[print_module, 93]     %21 = add nsw i32 %20, 10
+[print_module, 93]     store i32 %21, ptr %7, align 4
+[print_module, 93]     br label %12, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %7, align 4
+[print_module, 93]     %24 = icmp sgt i32 %23, 100
+[print_module, 93]     br i1 %24, label %25, label %27
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %26, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     %29 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %29
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %23 = load i32, ptr %7, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %7 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %7 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %24 = icmp sgt i32 %23, 100
+[subexpr_elim, 587]     Opcode: 42
+[subexpr_elim, 594]     Operand 0:   %23 = load i32, ptr %7, align 4
+[subexpr_elim, 594]     Operand 1: i32 100
+[subexpr_elim, 655] Added 42  %23 = load i32, ptr %7, align 4i32 100 to map
+[subexpr_elim, 583] Inst:   br i1 %24, label %25, label %27
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0:   %24 = icmp sgt i32 %23, 100
+[subexpr_elim, 594]     Operand 1: 
+27:                                               ; preds = %22
+  store i32 100, ptr %2, align 4
+  br label %28
+
+[subexpr_elim, 594]     Operand 2: 
+25:                                               ; preds = %22
+  %26 = load i32, ptr %6, align 4
+  store i32 %26, ptr %2, align 4
+  br label %28
+
+[subexpr_elim, 655] Added 2  %24 = icmp sgt i32 %23, 100
+27:                                               ; preds = %22
+  store i32 100, ptr %2, align 4
+  br label %28
+
+25:                                               ; preds = %22
+  %26 = load i32, ptr %6, align 4
+  store i32 %26, ptr %2, align 4
+  br label %28
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %23 = load i32, ptr %7, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %23 = load i32, ptr %7, align 4}
+[dead_code_elim, 701]   Found new instruction:   %23 = load i32, ptr %7, align 4
+[dead_code_elim, 707]     Operand: {  %7 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %24 = icmp sgt i32 %23, 100}
+[dead_code_elim, 707]     Operand: {  %23 = load i32, ptr %7, align 4}
+[dead_code_elim, 707]     Operand: {i32 100}
+[dead_code_elim, 697] Instruction: {  br i1 %24, label %25, label %27}
+[dead_code_elim, 707]     Operand: {  %24 = icmp sgt i32 %23, 100}
+[dead_code_elim, 707]     Operand: {
+27:                                               ; preds = %22
+  store i32 100, ptr %2, align 4
+  br label %28
+}
+[dead_code_elim, 707]     Operand: {
+25:                                               ; preds = %22
+  %26 = load i32, ptr %6, align 4
+  store i32 %26, ptr %2, align 4
+  br label %28
+}
+[dead_code_elim, 718] Operand:   %23 = load i32, ptr %7, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %23 = load i32, ptr %7, align 4}
+[constant_folding, 787] Instruction: {  %24 = icmp sgt i32 %23, 100}
+[constant_folding, 790]   Found binary op:   %24 = icmp sgt i32 %23, 100
+[constant_folding, 787] Instruction: {  br i1 %24, label %25, label %27}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     store i32 %0, ptr %3, align 4
+[print_module, 93]     store i32 10, ptr %6, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %4, align 4
+[print_module, 93]     %10 = load i32, ptr %6, align 4
+[print_module, 93]     %11 = add nsw i32 %8, %10
+[print_module, 93]     store i32 %11, ptr %5, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %12
+[print_module, 89] BB: 
+[print_module, 93]     %13 = load i32, ptr %3, align 4
+[print_module, 93]     %14 = icmp slt i32 %13, 100
+[print_module, 93]     br i1 %14, label %15, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %16 = load i32, ptr %3, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 5
+[print_module, 93]     store i32 %17, ptr %3, align 4
+[print_module, 93]     %18 = load i32, ptr %6, align 4
+[print_module, 93]     %19 = add nsw i32 %18, 10
+[print_module, 93]     store i32 %19, ptr %6, align 4
+[print_module, 93]     %20 = load i32, ptr %4, align 4
+[print_module, 93]     %21 = add nsw i32 %20, 10
+[print_module, 93]     store i32 %21, ptr %7, align 4
+[print_module, 93]     br label %12, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %7, align 4
+[print_module, 93]     %24 = icmp sgt i32 %23, 100
+[print_module, 93]     br i1 %24, label %25, label %27
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %26, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     %29 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %29
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %26 = load i32, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %6 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %6 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   store i32 %26, ptr %2, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %26 = load i32, ptr %6, align 4
+[subexpr_elim, 594]     Operand 1:   %2 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %28
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+28:                                               ; preds = %27, %25
+  %29 = load i32, ptr %2, align 4
+  ret i32 %29
+
+[subexpr_elim, 655] Added 2
+28:                                               ; preds = %27, %25
+  %29 = load i32, ptr %2, align 4
+  ret i32 %29
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %26 = load i32, ptr %6, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %26 = load i32, ptr %6, align 4}
+[dead_code_elim, 701]   Found new instruction:   %26 = load i32, ptr %6, align 4
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 %26, ptr %2, align 4}
+[dead_code_elim, 707]     Operand: {  %26 = load i32, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {  %2 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %28}
+[dead_code_elim, 707]     Operand: {
+28:                                               ; preds = %27, %25
+  %29 = load i32, ptr %2, align 4
+  ret i32 %29
+}
+[dead_code_elim, 718] Operand:   %26 = load i32, ptr %6, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %26 = load i32, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  store i32 %26, ptr %2, align 4}
+[constant_folding, 787] Instruction: {  br label %28}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     store i32 %0, ptr %3, align 4
+[print_module, 93]     store i32 10, ptr %6, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %4, align 4
+[print_module, 93]     %10 = load i32, ptr %6, align 4
+[print_module, 93]     %11 = add nsw i32 %8, %10
+[print_module, 93]     store i32 %11, ptr %5, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %12
+[print_module, 89] BB: 
+[print_module, 93]     %13 = load i32, ptr %3, align 4
+[print_module, 93]     %14 = icmp slt i32 %13, 100
+[print_module, 93]     br i1 %14, label %15, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %16 = load i32, ptr %3, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 5
+[print_module, 93]     store i32 %17, ptr %3, align 4
+[print_module, 93]     %18 = load i32, ptr %6, align 4
+[print_module, 93]     %19 = add nsw i32 %18, 10
+[print_module, 93]     store i32 %19, ptr %6, align 4
+[print_module, 93]     %20 = load i32, ptr %4, align 4
+[print_module, 93]     %21 = add nsw i32 %20, 10
+[print_module, 93]     store i32 %21, ptr %7, align 4
+[print_module, 93]     br label %12, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %7, align 4
+[print_module, 93]     %24 = icmp sgt i32 %23, 100
+[print_module, 93]     br i1 %24, label %25, label %27
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %26, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     %29 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %29
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   store i32 100, ptr %2, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 100
+[subexpr_elim, 594]     Operand 1:   %2 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %28
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+28:                                               ; preds = %27, %25
+  %29 = load i32, ptr %2, align 4
+  ret i32 %29
+
+[subexpr_elim, 655] Added 2
+28:                                               ; preds = %27, %25
+  %29 = load i32, ptr %2, align 4
+  ret i32 %29
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   store i32 100, ptr %2, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  store i32 100, ptr %2, align 4}
+[dead_code_elim, 707]     Operand: {i32 100}
+[dead_code_elim, 707]     Operand: {  %2 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %28}
+[dead_code_elim, 707]     Operand: {
+28:                                               ; preds = %27, %25
+  %29 = load i32, ptr %2, align 4
+  ret i32 %29
+}
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  store i32 100, ptr %2, align 4}
+[constant_folding, 787] Instruction: {  br label %28}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     store i32 %0, ptr %3, align 4
+[print_module, 93]     store i32 10, ptr %6, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %4, align 4
+[print_module, 93]     %10 = load i32, ptr %6, align 4
+[print_module, 93]     %11 = add nsw i32 %8, %10
+[print_module, 93]     store i32 %11, ptr %5, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %12
+[print_module, 89] BB: 
+[print_module, 93]     %13 = load i32, ptr %3, align 4
+[print_module, 93]     %14 = icmp slt i32 %13, 100
+[print_module, 93]     br i1 %14, label %15, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %16 = load i32, ptr %3, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 5
+[print_module, 93]     store i32 %17, ptr %3, align 4
+[print_module, 93]     %18 = load i32, ptr %6, align 4
+[print_module, 93]     %19 = add nsw i32 %18, 10
+[print_module, 93]     store i32 %19, ptr %6, align 4
+[print_module, 93]     %20 = load i32, ptr %4, align 4
+[print_module, 93]     %21 = add nsw i32 %20, 10
+[print_module, 93]     store i32 %21, ptr %7, align 4
+[print_module, 93]     br label %12, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %7, align 4
+[print_module, 93]     %24 = icmp sgt i32 %23, 100
+[print_module, 93]     br i1 %24, label %25, label %27
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %26, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     %29 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %29
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %29 = load i32, ptr %2, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %2 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %2 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   ret i32 %29
+[subexpr_elim, 587]     Opcode: 1
+[subexpr_elim, 594]     Operand 0:   %29 = load i32, ptr %2, align 4
+[subexpr_elim, 655] Added 1  %29 = load i32, ptr %2, align 4 to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %29 = load i32, ptr %2, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %29 = load i32, ptr %2, align 4}
+[dead_code_elim, 701]   Found new instruction:   %29 = load i32, ptr %2, align 4
+[dead_code_elim, 707]     Operand: {  %2 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  ret i32 %29}
+[dead_code_elim, 707]     Operand: {  %29 = load i32, ptr %2, align 4}
+[dead_code_elim, 718] Operand:   %29 = load i32, ptr %2, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %29 = load i32, ptr %2, align 4}
+[constant_folding, 787] Instruction: {  ret i32 %29}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     store i32 %0, ptr %3, align 4
+[print_module, 93]     store i32 10, ptr %6, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %4, align 4
+[print_module, 93]     %10 = load i32, ptr %6, align 4
+[print_module, 93]     %11 = add nsw i32 %8, %10
+[print_module, 93]     store i32 %11, ptr %5, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %12
+[print_module, 89] BB: 
+[print_module, 93]     %13 = load i32, ptr %3, align 4
+[print_module, 93]     %14 = icmp slt i32 %13, 100
+[print_module, 93]     br i1 %14, label %15, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %16 = load i32, ptr %3, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 5
+[print_module, 93]     store i32 %17, ptr %3, align 4
+[print_module, 93]     %18 = load i32, ptr %6, align 4
+[print_module, 93]     %19 = add nsw i32 %18, 10
+[print_module, 93]     store i32 %19, ptr %6, align 4
+[print_module, 93]     %20 = load i32, ptr %4, align 4
+[print_module, 93]     %21 = add nsw i32 %20, 10
+[print_module, 93]     store i32 %21, ptr %7, align 4
+[print_module, 93]     br label %12, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %7, align 4
+[print_module, 93]     %24 = icmp sgt i32 %23, 100
+[print_module, 93]     br i1 %24, label %25, label %27
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %26, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %28
+[print_module, 89] BB: 
+[print_module, 93]     %29 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %29
+[compute_gen_kill, 263] COMPUTING GEN AND KILL FOR FUNC {func}
+[compute_gen_kill, 264] ===============================
+[compute_gen_kill, 277] Inst:{  %2 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %3 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %4 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %5 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %6 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %7 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  store i32 %0, ptr %3, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %3 = alloca i32, align 4} value: {i32 %0}
+[compute_gen_kill, 277] Inst:{  store i32 10, ptr %6, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %6 = alloca i32, align 4} value: {i32 10}
+[compute_gen_kill, 277] Inst:{  %8 = load i32, ptr %3, align 4}
+[compute_gen_kill, 277] Inst:{  %9 = add nsw i32 %8, 10}
+[compute_gen_kill, 277] Inst:{  store i32 %9, ptr %4, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %4 = alloca i32, align 4} value: {  %9 = add nsw i32 %8, 10}
+[compute_gen_kill, 277] Inst:{  %10 = load i32, ptr %6, align 4}
+[compute_gen_kill, 277] Inst:{  %11 = add nsw i32 %8, %10}
+[compute_gen_kill, 277] Inst:{  store i32 %11, ptr %5, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %5 = alloca i32, align 4} value: {  %11 = add nsw i32 %8, %10}
+[compute_gen_kill, 277] Inst:{  store i32 20, ptr %7, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %7 = alloca i32, align 4} value: {i32 20}
+[compute_gen_kill, 277] Inst:{  store i32 10, ptr %4, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %4 = alloca i32, align 4} value: {i32 10}
+[compute_gen_kill, 286]     Killing {  store i32 %9, ptr %4, align 4}
+[compute_gen_kill, 277] Inst:{  br label %12}
+[compute_gen_kill, 277] Inst:{  %13 = load i32, ptr %3, align 4}
+[compute_gen_kill, 277] Inst:{  %14 = icmp slt i32 %13, 100}
+[compute_gen_kill, 277] Inst:{  br i1 %14, label %15, label %22}
+[compute_gen_kill, 277] Inst:{  %16 = load i32, ptr %3, align 4}
+[compute_gen_kill, 277] Inst:{  %17 = add nsw i32 %16, 5}
+[compute_gen_kill, 277] Inst:{  store i32 %17, ptr %3, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %3 = alloca i32, align 4} value: {  %17 = add nsw i32 %16, 5}
+[compute_gen_kill, 277] Inst:{  %18 = load i32, ptr %6, align 4}
+[compute_gen_kill, 277] Inst:{  %19 = add nsw i32 %18, 10}
+[compute_gen_kill, 277] Inst:{  store i32 %19, ptr %6, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %6 = alloca i32, align 4} value: {  %19 = add nsw i32 %18, 10}
+[compute_gen_kill, 277] Inst:{  %20 = load i32, ptr %4, align 4}
+[compute_gen_kill, 277] Inst:{  %21 = add nsw i32 %20, 10}
+[compute_gen_kill, 277] Inst:{  store i32 %21, ptr %7, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %7 = alloca i32, align 4} value: {  %21 = add nsw i32 %20, 10}
+[compute_gen_kill, 277] Inst:{  br label %12, !llvm.loop !6}
+[compute_gen_kill, 277] Inst:{  %23 = load i32, ptr %7, align 4}
+[compute_gen_kill, 277] Inst:{  %24 = icmp sgt i32 %23, 100}
+[compute_gen_kill, 277] Inst:{  br i1 %24, label %25, label %27}
+[compute_gen_kill, 277] Inst:{  %26 = load i32, ptr %6, align 4}
+[compute_gen_kill, 277] Inst:{  store i32 %26, ptr %2, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %2 = alloca i32, align 4} value: {  %26 = load i32, ptr %6, align 4}
+[compute_gen_kill, 277] Inst:{  br label %28}
+[compute_gen_kill, 277] Inst:{  store i32 100, ptr %2, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %2 = alloca i32, align 4} value: {i32 100}
+[compute_gen_kill, 277] Inst:{  br label %28}
+[compute_gen_kill, 277] Inst:{  %29 = load i32, ptr %2, align 4}
+[compute_gen_kill, 277] Inst:{  ret i32 %29}
+[constant_propagation, 415] BEGINNING CONSTANT PROPAGATION
+[constant_propagation, 416] ================================
+
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %2 = alloca i32, align 4}
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 10, ptr %6, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %0, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %8 = load i32, ptr %3, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 %0, ptr %3, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %9, ptr %4, align 4}
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %4 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %0, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %4 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %4, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %10 = load i32, ptr %6, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 10, ptr %6, align 4
+[constant_propagation, 520]     Replaced load {  %10 = load i32, ptr %6, align 4} with constant {i32 10}
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %11, ptr %5, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %9, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %5 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %5 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %0, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %5 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %11, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %4, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 20, ptr %7, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %11, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %9, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %0, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %11, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %4, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 10, ptr %4, align 4}
+[constant_propagation, 444]   Matching store:   store i32 20, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %4 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %11, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %4 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %9, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %4 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 452]       FOUND KILLED STORE INSTRUCTION in bb {  %2 = alloca i32, align 4}
+[constant_propagation, 453]           Store instruction:   store i32 10, ptr %4, align 4
+[constant_propagation, 454]                 next instr:   br label %12
+[constant_propagation, 455]           Killing matching instruction:   store i32 %9, ptr %4, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %4 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %0, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %4 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %11, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %4, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %13 = load i32, ptr %3, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %13 = load i32, ptr %3, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 %0, ptr %3, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %16 = load i32, ptr %3, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %16 = load i32, ptr %3, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 %0, ptr %3, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %17, ptr %3, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %19, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %0, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 452]       FOUND KILLED STORE INSTRUCTION in bb {  %16 = load i32, ptr %3, align 4}
+[constant_propagation, 453]           Store instruction:   store i32 %17, ptr %3, align 4
+[constant_propagation, 454]                 next instr:   %18 = load i32, ptr %6, align 4
+[constant_propagation, 455]           Killing matching instruction:   store i32 %0, ptr %3, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %11, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 20, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %21, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %17, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %19, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %11, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %21, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %18 = load i32, ptr %6, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 10, ptr %6, align 4
+[constant_propagation, 493]     Inst:   store i32 %19, ptr %6, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %19, ptr %6, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %17, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %0, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 452]       FOUND KILLED STORE INSTRUCTION in bb {  %16 = load i32, ptr %3, align 4}
+[constant_propagation, 453]           Store instruction:   store i32 %19, ptr %6, align 4
+[constant_propagation, 454]                 next instr:   %20 = load i32, ptr %4, align 4
+[constant_propagation, 455]           Killing matching instruction:   store i32 10, ptr %6, align 4
+[constant_propagation, 444]   Matching store:   store i32 %11, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 20, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %21, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %17, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %19, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %11, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %21, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %20 = load i32, ptr %4, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 10, ptr %4, align 4
+[constant_propagation, 520]     Replaced load {  %20 = load i32, ptr %4, align 4} with constant {i32 10}
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %21, ptr %7, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %17, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %19, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %0, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %11, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 20, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 452]       FOUND KILLED STORE INSTRUCTION in bb {  %16 = load i32, ptr %3, align 4}
+[constant_propagation, 453]           Store instruction:   store i32 %21, ptr %7, align 4
+[constant_propagation, 454]                 next instr:   br label %12, !llvm.loop !6
+[constant_propagation, 455]           Killing matching instruction:   store i32 20, ptr %7, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %17, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %19, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %11, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %21, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %23 = load i32, ptr %7, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %23 = load i32, ptr %7, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 %21, ptr %7, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %26 = load i32, ptr %6, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %26 = load i32, ptr %6, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 10, ptr %6, align 4
+[constant_propagation, 493]     Inst:   store i32 %19, ptr %6, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %26, ptr %2, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %17, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %19, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %0, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %11, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 20, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %21, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %26, ptr %2, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %17, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %19, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %11, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %21, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  store i32 100, ptr %2, align 4}
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 100, ptr %2, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %17, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %19, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %0, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %11, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 20, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %21, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 100, ptr %2, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %17, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %19, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %11, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %21, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %29 = load i32, ptr %2, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %29 = load i32, ptr %2, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 100, ptr %2, align 4
+[constant_propagation, 493]     Inst:   store i32 %26, ptr %2, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 526] REMOVING 6 INSTRUCTIONS
+[constant_propagation, 532]     Removing instruction {  %10 = load i32, ptr %6, align 4}
+[constant_propagation, 532]     Removing instruction {  store i32 %9, ptr %4, align 4}
+[constant_propagation, 532]     Removing instruction {  store i32 %0, ptr %3, align 4}
+[constant_propagation, 532]     Removing instruction {  store i32 10, ptr %6, align 4}
+[constant_propagation, 532]     Removing instruction {  %19 = load i32, ptr %4, align 4}
+[constant_propagation, 532]     Removing instruction {  store i32 20, ptr %7, align 4}
+[global_optimizer, 156] change: 1
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %2 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %3 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %4 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %5 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %6 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %7 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %9 = add nsw i32 %8, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8  %8 = load i32, ptr %3, align 4i32 10 to map
+[subexpr_elim, 583] Inst:   %10 = add nsw i32 %8, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 648]     REPLACED all uses of   %10 = add nsw i32 %8, 10 with   %9 = add nsw i32 %8, 10
+[subexpr_elim, 583] Inst:   store i32 %9, ptr %5, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %9 = add nsw i32 %8, 10
+[subexpr_elim, 594]     Operand 1:   %5 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   store i32 10, ptr %4, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 10
+[subexpr_elim, 594]     Operand 1:   %4 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %11
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+11:                                               ; preds = %14, %1
+  %12 = load i32, ptr %3, align 4
+  %13 = icmp slt i32 %12, 100
+  br i1 %13, label %14, label %20
+
+[subexpr_elim, 655] Added 2
+11:                                               ; preds = %14, %1
+  %12 = load i32, ptr %3, align 4
+  %13 = icmp slt i32 %12, 100
+  br i1 %13, label %14, label %20
+ to map
+[subexpr_elim, 659] change: 1
+[local_optimizer, 133] change: 1
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %2 = alloca i32, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %2 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %3 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %4 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %5 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %6 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %7 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %8 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %9 = add nsw i32 %8, 10}
+[dead_code_elim, 701]   Found new instruction:   %9 = add nsw i32 %8, 10
+[dead_code_elim, 707]     Operand: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  %10 = add nsw i32 %8, 10}
+[dead_code_elim, 701]   Found new instruction:   %10 = add nsw i32 %8, 10
+[dead_code_elim, 707]     Operand: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %9, ptr %5, align 4}
+[dead_code_elim, 707]     Operand: {  %9 = add nsw i32 %8, 10}
+[dead_code_elim, 707]     Operand: {  %5 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 10, ptr %4, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 707]     Operand: {  %4 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %11}
+[dead_code_elim, 707]     Operand: {
+11:                                               ; preds = %14, %1
+  %12 = load i32, ptr %3, align 4
+  %13 = icmp slt i32 %12, 100
+  br i1 %13, label %14, label %20
+}
+[dead_code_elim, 718] Operand:   %10 = add nsw i32 %8, 10, uses: 0
+[dead_code_elim, 718] Operand:   %9 = add nsw i32 %8, 10, uses: 1
+[dead_code_elim, 718] Operand:   %8 = load i32, ptr %3, align 4, uses: 2
+[local_optimizer, 135] change: 1
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %2 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %3 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %4 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %5 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %6 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %7 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %8 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %9 = add nsw i32 %8, 10}
+[constant_folding, 790]   Found binary op:   %9 = add nsw i32 %8, 10
+[constant_folding, 787] Instruction: {  store i32 %9, ptr %5, align 4}
+[constant_folding, 787] Instruction: {  store i32 10, ptr %4, align 4}
+[constant_folding, 787] Instruction: {  br label %10}
+[local_optimizer, 137] change: 1
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %19
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     %18 = add nsw i32 10, 10
+[print_module, 93]     store i32 %18, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %20 = load i32, ptr %7, align 4
+[print_module, 93]     %21 = icmp sgt i32 %20, 100
+[print_module, 93]     br i1 %21, label %22, label %24
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %23, ptr %2, align 4
+[print_module, 93]     br label %25
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %25
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %26
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %2 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %3 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %4 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %5 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %6 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %7 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %9 = add nsw i32 %8, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8  %8 = load i32, ptr %3, align 4i32 10 to map
+[subexpr_elim, 583] Inst:   store i32 %9, ptr %5, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %9 = add nsw i32 %8, 10
+[subexpr_elim, 594]     Operand 1:   %5 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   store i32 10, ptr %4, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 10
+[subexpr_elim, 594]     Operand 1:   %4 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %10
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %19
+
+[subexpr_elim, 655] Added 2
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %19
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %2 = alloca i32, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %2 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %3 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %4 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %5 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %6 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %7 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %8 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %9 = add nsw i32 %8, 10}
+[dead_code_elim, 701]   Found new instruction:   %9 = add nsw i32 %8, 10
+[dead_code_elim, 707]     Operand: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %9, ptr %5, align 4}
+[dead_code_elim, 707]     Operand: {  %9 = add nsw i32 %8, 10}
+[dead_code_elim, 707]     Operand: {  %5 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 10, ptr %4, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 707]     Operand: {  %4 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %10}
+[dead_code_elim, 707]     Operand: {
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %19
+}
+[dead_code_elim, 718] Operand:   %9 = add nsw i32 %8, 10, uses: 1
+[dead_code_elim, 718] Operand:   %8 = load i32, ptr %3, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %2 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %3 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %4 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %5 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %6 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %7 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %8 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %9 = add nsw i32 %8, 10}
+[constant_folding, 790]   Found binary op:   %9 = add nsw i32 %8, 10
+[constant_folding, 787] Instruction: {  store i32 %9, ptr %5, align 4}
+[constant_folding, 787] Instruction: {  store i32 10, ptr %4, align 4}
+[constant_folding, 787] Instruction: {  br label %10}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %19
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     %18 = add nsw i32 10, 10
+[print_module, 93]     store i32 %18, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %20 = load i32, ptr %7, align 4
+[print_module, 93]     %21 = icmp sgt i32 %20, 100
+[print_module, 93]     br i1 %21, label %22, label %24
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %23, ptr %2, align 4
+[print_module, 93]     br label %25
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %25
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %26
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %11 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %12 = icmp slt i32 %11, 100
+[subexpr_elim, 587]     Opcode: 42
+[subexpr_elim, 594]     Operand 0:   %11 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 100
+[subexpr_elim, 655] Added 42  %11 = load i32, ptr %3, align 4i32 100 to map
+[subexpr_elim, 583] Inst:   br i1 %12, label %13, label %19
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0:   %12 = icmp slt i32 %11, 100
+[subexpr_elim, 594]     Operand 1: 
+19:                                               ; preds = %10
+  %20 = load i32, ptr %7, align 4
+  %21 = icmp sgt i32 %20, 100
+  br i1 %21, label %22, label %24
+
+[subexpr_elim, 594]     Operand 2: 
+13:                                               ; preds = %10
+  %14 = load i32, ptr %3, align 4
+  %15 = add nsw i32 %14, 5
+  store i32 %15, ptr %3, align 4
+  %16 = load i32, ptr %6, align 4
+  %17 = add nsw i32 %16, 10
+  store i32 %17, ptr %6, align 4
+  %18 = add nsw i32 10, 10
+  store i32 %18, ptr %7, align 4
+  br label %10, !llvm.loop !6
+
+[subexpr_elim, 655] Added 2  %12 = icmp slt i32 %11, 100
+19:                                               ; preds = %10
+  %20 = load i32, ptr %7, align 4
+  %21 = icmp sgt i32 %20, 100
+  br i1 %21, label %22, label %24
+
+13:                                               ; preds = %10
+  %14 = load i32, ptr %3, align 4
+  %15 = add nsw i32 %14, 5
+  store i32 %15, ptr %3, align 4
+  %16 = load i32, ptr %6, align 4
+  %17 = add nsw i32 %16, 10
+  store i32 %17, ptr %6, align 4
+  %18 = add nsw i32 10, 10
+  store i32 %18, ptr %7, align 4
+  br label %10, !llvm.loop !6
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %11 = load i32, ptr %3, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %11 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %11 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %12 = icmp slt i32 %11, 100}
+[dead_code_elim, 707]     Operand: {  %11 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 100}
+[dead_code_elim, 697] Instruction: {  br i1 %12, label %13, label %19}
+[dead_code_elim, 707]     Operand: {  %12 = icmp slt i32 %11, 100}
+[dead_code_elim, 707]     Operand: {
+19:                                               ; preds = %10
+  %20 = load i32, ptr %7, align 4
+  %21 = icmp sgt i32 %20, 100
+  br i1 %21, label %22, label %24
+}
+[dead_code_elim, 707]     Operand: {
+13:                                               ; preds = %10
+  %14 = load i32, ptr %3, align 4
+  %15 = add nsw i32 %14, 5
+  store i32 %15, ptr %3, align 4
+  %16 = load i32, ptr %6, align 4
+  %17 = add nsw i32 %16, 10
+  store i32 %17, ptr %6, align 4
+  %18 = add nsw i32 10, 10
+  store i32 %18, ptr %7, align 4
+  br label %10, !llvm.loop !6
+}
+[dead_code_elim, 718] Operand:   %11 = load i32, ptr %3, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %11 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %12 = icmp slt i32 %11, 100}
+[constant_folding, 790]   Found binary op:   %12 = icmp slt i32 %11, 100
+[constant_folding, 787] Instruction: {  br i1 %12, label %13, label %19}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %19
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     %18 = add nsw i32 10, 10
+[print_module, 93]     store i32 %18, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %20 = load i32, ptr %7, align 4
+[print_module, 93]     %21 = icmp sgt i32 %20, 100
+[print_module, 93]     br i1 %21, label %22, label %24
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %23, ptr %2, align 4
+[print_module, 93]     br label %25
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %25
+[print_module, 89] BB: 
+[print_module, 93]     %26 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %26
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %14 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %15 = add nsw i32 %14, 5
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %14 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 5
+[subexpr_elim, 655] Added 8  %14 = load i32, ptr %3, align 4i32 5 to map
+[subexpr_elim, 583] Inst:   store i32 %15, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %15 = add nsw i32 %14, 5
+[subexpr_elim, 594]     Operand 1:   %3 = alloca i32, align 4
+[subexpr_elim, 636] Found store {  store i32 %15, ptr %3, align 4} to load {  %14 = load i32, ptr %3, align 4}, removed load
+[subexpr_elim, 583] Inst:   %16 = load i32, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %6 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %6 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %17 = add nsw i32 %16, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %16 = load i32, ptr %6, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8  %16 = load i32, ptr %6, align 4i32 10 to map
+[subexpr_elim, 583] Inst:   store i32 %17, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %17 = add nsw i32 %16, 10
+[subexpr_elim, 594]     Operand 1:   %6 = alloca i32, align 4
+[subexpr_elim, 636] Found store {  store i32 %17, ptr %6, align 4} to load {  %16 = load i32, ptr %6, align 4}, removed load
+[subexpr_elim, 583] Inst:   %18 = add nsw i32 10, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0: i32 10
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8i32 10i32 10 to map
+[subexpr_elim, 583] Inst:   store i32 %18, ptr %7, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %18 = add nsw i32 10, 10
+[subexpr_elim, 594]     Operand 1:   %7 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %10, !llvm.loop !6
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %19
+
+[subexpr_elim, 655] Added 2
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %19
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %14 = load i32, ptr %3, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %14 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %14 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %15 = add nsw i32 %14, 5}
+[dead_code_elim, 701]   Found new instruction:   %15 = add nsw i32 %14, 5
+[dead_code_elim, 707]     Operand: {  %14 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 5}
+[dead_code_elim, 697] Instruction: {  store i32 %15, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {  %15 = add nsw i32 %14, 5}
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %16 = load i32, ptr %6, align 4}
+[dead_code_elim, 701]   Found new instruction:   %16 = load i32, ptr %6, align 4
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %17 = add nsw i32 %16, 10}
+[dead_code_elim, 701]   Found new instruction:   %17 = add nsw i32 %16, 10
+[dead_code_elim, 707]     Operand: {  %16 = load i32, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %17, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {  %17 = add nsw i32 %16, 10}
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %18 = add nsw i32 10, 10}
+[dead_code_elim, 701]   Found new instruction:   %18 = add nsw i32 10, 10
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %18, ptr %7, align 4}
+[dead_code_elim, 707]     Operand: {  %18 = add nsw i32 10, 10}
+[dead_code_elim, 707]     Operand: {  %7 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %10, !llvm.loop !6}
+[dead_code_elim, 707]     Operand: {
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %19
+}
+[dead_code_elim, 718] Operand:   %18 = add nsw i32 10, 10, uses: 1
+[dead_code_elim, 718] Operand:   %17 = add nsw i32 %16, 10, uses: 1
+[dead_code_elim, 718] Operand:   %16 = load i32, ptr %6, align 4, uses: 1
+[dead_code_elim, 718] Operand:   %15 = add nsw i32 %14, 5, uses: 1
+[dead_code_elim, 718] Operand:   %14 = load i32, ptr %3, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %14 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %15 = add nsw i32 %14, 5}
+[constant_folding, 790]   Found binary op:   %15 = add nsw i32 %14, 5
+[constant_folding, 787] Instruction: {  store i32 %15, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %16 = load i32, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  %17 = add nsw i32 %16, 10}
+[constant_folding, 790]   Found binary op:   %17 = add nsw i32 %16, 10
+[constant_folding, 787] Instruction: {  store i32 %17, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  %18 = add nsw i32 10, 10}
+[constant_folding, 790]   Found binary op:   %18 = add nsw i32 10, 10
+[constant_folding, 797] WE HAVE TWO CONSTANTS
+[constant_folding, 801]     Adding i32 10 and i32 10
+[constant_folding, 787] Instruction: {  store i32 20, ptr %7, align 4}
+[constant_folding, 787] Instruction: {  br label %10, !llvm.loop !6}
+[local_optimizer, 137] change: 1
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %19 = load i32, ptr %7, align 4
+[print_module, 93]     %20 = icmp sgt i32 %19, 100
+[print_module, 93]     br i1 %20, label %21, label %23
+[print_module, 89] BB: 
+[print_module, 93]     %22 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %22, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     %25 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %25
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %14 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %15 = add nsw i32 %14, 5
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %14 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 5
+[subexpr_elim, 655] Added 8  %14 = load i32, ptr %3, align 4i32 5 to map
+[subexpr_elim, 583] Inst:   store i32 %15, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %15 = add nsw i32 %14, 5
+[subexpr_elim, 594]     Operand 1:   %3 = alloca i32, align 4
+[subexpr_elim, 636] Found store {  store i32 %15, ptr %3, align 4} to load {  %14 = load i32, ptr %3, align 4}, removed load
+[subexpr_elim, 583] Inst:   %16 = load i32, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %6 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %6 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %17 = add nsw i32 %16, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %16 = load i32, ptr %6, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8  %16 = load i32, ptr %6, align 4i32 10 to map
+[subexpr_elim, 583] Inst:   store i32 %17, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %17 = add nsw i32 %16, 10
+[subexpr_elim, 594]     Operand 1:   %6 = alloca i32, align 4
+[subexpr_elim, 636] Found store {  store i32 %17, ptr %6, align 4} to load {  %16 = load i32, ptr %6, align 4}, removed load
+[subexpr_elim, 583] Inst:   store i32 20, ptr %7, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 20
+[subexpr_elim, 594]     Operand 1:   %7 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %10, !llvm.loop !6
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %18
+
+[subexpr_elim, 655] Added 2
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %18
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %14 = load i32, ptr %3, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %14 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %14 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %15 = add nsw i32 %14, 5}
+[dead_code_elim, 701]   Found new instruction:   %15 = add nsw i32 %14, 5
+[dead_code_elim, 707]     Operand: {  %14 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 5}
+[dead_code_elim, 697] Instruction: {  store i32 %15, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {  %15 = add nsw i32 %14, 5}
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %16 = load i32, ptr %6, align 4}
+[dead_code_elim, 701]   Found new instruction:   %16 = load i32, ptr %6, align 4
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %17 = add nsw i32 %16, 10}
+[dead_code_elim, 701]   Found new instruction:   %17 = add nsw i32 %16, 10
+[dead_code_elim, 707]     Operand: {  %16 = load i32, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %17, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {  %17 = add nsw i32 %16, 10}
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 20, ptr %7, align 4}
+[dead_code_elim, 707]     Operand: {i32 20}
+[dead_code_elim, 707]     Operand: {  %7 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %10, !llvm.loop !6}
+[dead_code_elim, 707]     Operand: {
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %18
+}
+[dead_code_elim, 718] Operand:   %17 = add nsw i32 %16, 10, uses: 1
+[dead_code_elim, 718] Operand:   %16 = load i32, ptr %6, align 4, uses: 1
+[dead_code_elim, 718] Operand:   %15 = add nsw i32 %14, 5, uses: 1
+[dead_code_elim, 718] Operand:   %14 = load i32, ptr %3, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %14 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %15 = add nsw i32 %14, 5}
+[constant_folding, 790]   Found binary op:   %15 = add nsw i32 %14, 5
+[constant_folding, 787] Instruction: {  store i32 %15, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %16 = load i32, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  %17 = add nsw i32 %16, 10}
+[constant_folding, 790]   Found binary op:   %17 = add nsw i32 %16, 10
+[constant_folding, 787] Instruction: {  store i32 %17, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  store i32 20, ptr %7, align 4}
+[constant_folding, 787] Instruction: {  br label %10, !llvm.loop !6}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %19 = load i32, ptr %7, align 4
+[print_module, 93]     %20 = icmp sgt i32 %19, 100
+[print_module, 93]     br i1 %20, label %21, label %23
+[print_module, 89] BB: 
+[print_module, 93]     %22 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %22, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     %25 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %25
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %19 = load i32, ptr %7, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %7 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %7 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %20 = icmp sgt i32 %19, 100
+[subexpr_elim, 587]     Opcode: 42
+[subexpr_elim, 594]     Operand 0:   %19 = load i32, ptr %7, align 4
+[subexpr_elim, 594]     Operand 1: i32 100
+[subexpr_elim, 655] Added 42  %19 = load i32, ptr %7, align 4i32 100 to map
+[subexpr_elim, 583] Inst:   br i1 %20, label %21, label %23
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0:   %20 = icmp sgt i32 %19, 100
+[subexpr_elim, 594]     Operand 1: 
+23:                                               ; preds = %18
+  store i32 100, ptr %2, align 4
+  br label %24
+
+[subexpr_elim, 594]     Operand 2: 
+21:                                               ; preds = %18
+  %22 = load i32, ptr %6, align 4
+  store i32 %22, ptr %2, align 4
+  br label %24
+
+[subexpr_elim, 655] Added 2  %20 = icmp sgt i32 %19, 100
+23:                                               ; preds = %18
+  store i32 100, ptr %2, align 4
+  br label %24
+
+21:                                               ; preds = %18
+  %22 = load i32, ptr %6, align 4
+  store i32 %22, ptr %2, align 4
+  br label %24
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %19 = load i32, ptr %7, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %19 = load i32, ptr %7, align 4}
+[dead_code_elim, 701]   Found new instruction:   %19 = load i32, ptr %7, align 4
+[dead_code_elim, 707]     Operand: {  %7 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %20 = icmp sgt i32 %19, 100}
+[dead_code_elim, 707]     Operand: {  %19 = load i32, ptr %7, align 4}
+[dead_code_elim, 707]     Operand: {i32 100}
+[dead_code_elim, 697] Instruction: {  br i1 %20, label %21, label %23}
+[dead_code_elim, 707]     Operand: {  %20 = icmp sgt i32 %19, 100}
+[dead_code_elim, 707]     Operand: {
+23:                                               ; preds = %18
+  store i32 100, ptr %2, align 4
+  br label %24
+}
+[dead_code_elim, 707]     Operand: {
+21:                                               ; preds = %18
+  %22 = load i32, ptr %6, align 4
+  store i32 %22, ptr %2, align 4
+  br label %24
+}
+[dead_code_elim, 718] Operand:   %19 = load i32, ptr %7, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %19 = load i32, ptr %7, align 4}
+[constant_folding, 787] Instruction: {  %20 = icmp sgt i32 %19, 100}
+[constant_folding, 790]   Found binary op:   %20 = icmp sgt i32 %19, 100
+[constant_folding, 787] Instruction: {  br i1 %20, label %21, label %23}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %19 = load i32, ptr %7, align 4
+[print_module, 93]     %20 = icmp sgt i32 %19, 100
+[print_module, 93]     br i1 %20, label %21, label %23
+[print_module, 89] BB: 
+[print_module, 93]     %22 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %22, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     %25 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %25
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %22 = load i32, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %6 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %6 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   store i32 %22, ptr %2, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %22 = load i32, ptr %6, align 4
+[subexpr_elim, 594]     Operand 1:   %2 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %24
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+24:                                               ; preds = %23, %21
+  %25 = load i32, ptr %2, align 4
+  ret i32 %25
+
+[subexpr_elim, 655] Added 2
+24:                                               ; preds = %23, %21
+  %25 = load i32, ptr %2, align 4
+  ret i32 %25
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %22 = load i32, ptr %6, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %22 = load i32, ptr %6, align 4}
+[dead_code_elim, 701]   Found new instruction:   %22 = load i32, ptr %6, align 4
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 %22, ptr %2, align 4}
+[dead_code_elim, 707]     Operand: {  %22 = load i32, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {  %2 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %24}
+[dead_code_elim, 707]     Operand: {
+24:                                               ; preds = %23, %21
+  %25 = load i32, ptr %2, align 4
+  ret i32 %25
+}
+[dead_code_elim, 718] Operand:   %22 = load i32, ptr %6, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %22 = load i32, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  store i32 %22, ptr %2, align 4}
+[constant_folding, 787] Instruction: {  br label %24}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %19 = load i32, ptr %7, align 4
+[print_module, 93]     %20 = icmp sgt i32 %19, 100
+[print_module, 93]     br i1 %20, label %21, label %23
+[print_module, 89] BB: 
+[print_module, 93]     %22 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %22, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     %25 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %25
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   store i32 100, ptr %2, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 100
+[subexpr_elim, 594]     Operand 1:   %2 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %24
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+24:                                               ; preds = %23, %21
+  %25 = load i32, ptr %2, align 4
+  ret i32 %25
+
+[subexpr_elim, 655] Added 2
+24:                                               ; preds = %23, %21
+  %25 = load i32, ptr %2, align 4
+  ret i32 %25
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   store i32 100, ptr %2, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  store i32 100, ptr %2, align 4}
+[dead_code_elim, 707]     Operand: {i32 100}
+[dead_code_elim, 707]     Operand: {  %2 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %24}
+[dead_code_elim, 707]     Operand: {
+24:                                               ; preds = %23, %21
+  %25 = load i32, ptr %2, align 4
+  ret i32 %25
+}
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  store i32 100, ptr %2, align 4}
+[constant_folding, 787] Instruction: {  br label %24}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %19 = load i32, ptr %7, align 4
+[print_module, 93]     %20 = icmp sgt i32 %19, 100
+[print_module, 93]     br i1 %20, label %21, label %23
+[print_module, 89] BB: 
+[print_module, 93]     %22 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %22, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     %25 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %25
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %25 = load i32, ptr %2, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %2 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %2 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   ret i32 %25
+[subexpr_elim, 587]     Opcode: 1
+[subexpr_elim, 594]     Operand 0:   %25 = load i32, ptr %2, align 4
+[subexpr_elim, 655] Added 1  %25 = load i32, ptr %2, align 4 to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %25 = load i32, ptr %2, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %25 = load i32, ptr %2, align 4}
+[dead_code_elim, 701]   Found new instruction:   %25 = load i32, ptr %2, align 4
+[dead_code_elim, 707]     Operand: {  %2 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  ret i32 %25}
+[dead_code_elim, 707]     Operand: {  %25 = load i32, ptr %2, align 4}
+[dead_code_elim, 718] Operand:   %25 = load i32, ptr %2, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %25 = load i32, ptr %2, align 4}
+[constant_folding, 787] Instruction: {  ret i32 %25}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %19 = load i32, ptr %7, align 4
+[print_module, 93]     %20 = icmp sgt i32 %19, 100
+[print_module, 93]     br i1 %20, label %21, label %23
+[print_module, 89] BB: 
+[print_module, 93]     %22 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %22, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %24
+[print_module, 89] BB: 
+[print_module, 93]     %25 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %25
+[compute_gen_kill, 263] COMPUTING GEN AND KILL FOR FUNC {func}
+[compute_gen_kill, 264] ===============================
+[compute_gen_kill, 277] Inst:{  %2 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %3 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %4 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %5 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %6 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %7 = alloca i32, align 4}
+[compute_gen_kill, 277] Inst:{  %8 = load i32, ptr %3, align 4}
+[compute_gen_kill, 277] Inst:{  %9 = add nsw i32 %8, 10}
+[compute_gen_kill, 277] Inst:{  store i32 %9, ptr %5, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %5 = alloca i32, align 4} value: {  %9 = add nsw i32 %8, 10}
+[compute_gen_kill, 277] Inst:{  store i32 10, ptr %4, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %4 = alloca i32, align 4} value: {i32 10}
+[compute_gen_kill, 277] Inst:{  br label %10}
+[compute_gen_kill, 277] Inst:{  %11 = load i32, ptr %3, align 4}
+[compute_gen_kill, 277] Inst:{  %12 = icmp slt i32 %11, 100}
+[compute_gen_kill, 277] Inst:{  br i1 %12, label %13, label %18}
+[compute_gen_kill, 277] Inst:{  %14 = load i32, ptr %3, align 4}
+[compute_gen_kill, 277] Inst:{  %15 = add nsw i32 %14, 5}
+[compute_gen_kill, 277] Inst:{  store i32 %15, ptr %3, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %3 = alloca i32, align 4} value: {  %15 = add nsw i32 %14, 5}
+[compute_gen_kill, 277] Inst:{  %16 = load i32, ptr %6, align 4}
+[compute_gen_kill, 277] Inst:{  %17 = add nsw i32 %16, 10}
+[compute_gen_kill, 277] Inst:{  store i32 %17, ptr %6, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %6 = alloca i32, align 4} value: {  %17 = add nsw i32 %16, 10}
+[compute_gen_kill, 277] Inst:{  store i32 20, ptr %7, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %7 = alloca i32, align 4} value: {i32 20}
+[compute_gen_kill, 277] Inst:{  br label %10, !llvm.loop !6}
+[compute_gen_kill, 277] Inst:{  %19 = load i32, ptr %7, align 4}
+[compute_gen_kill, 277] Inst:{  %20 = icmp sgt i32 %19, 100}
+[compute_gen_kill, 277] Inst:{  br i1 %20, label %21, label %23}
+[compute_gen_kill, 277] Inst:{  %22 = load i32, ptr %6, align 4}
+[compute_gen_kill, 277] Inst:{  store i32 %22, ptr %2, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %2 = alloca i32, align 4} value: {  %22 = load i32, ptr %6, align 4}
+[compute_gen_kill, 277] Inst:{  br label %24}
+[compute_gen_kill, 277] Inst:{  store i32 100, ptr %2, align 4}
+[compute_gen_kill, 282]   Found Store // pointer: {  %2 = alloca i32, align 4} value: {i32 100}
+[compute_gen_kill, 277] Inst:{  br label %24}
+[compute_gen_kill, 277] Inst:{  %25 = load i32, ptr %2, align 4}
+[compute_gen_kill, 277] Inst:{  ret i32 %25}
+[constant_propagation, 415] BEGINNING CONSTANT PROPAGATION
+[constant_propagation, 416] ================================
+
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %2 = alloca i32, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %8 = load i32, ptr %3, align 4}... 
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %9, ptr %5, align 4}
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %5, align 4}
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 10, ptr %4, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %9, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %4 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %5, align 4}
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %11 = load i32, ptr %3, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %11 = load i32, ptr %3, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 %15, ptr %3, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %14 = load i32, ptr %3, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %14 = load i32, ptr %3, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 %15, ptr %3, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %15, ptr %3, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %17, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %9, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 20, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %3 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %15, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %17, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %16 = load i32, ptr %6, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 %17, ptr %6, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %17, ptr %6, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %15, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %9, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 20, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %6 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %15, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %17, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 20, ptr %7, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %15, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %17, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %9, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %7 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %15, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %17, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %19 = load i32, ptr %7, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %19 = load i32, ptr %7, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 20, ptr %7, align 4
+[constant_propagation, 520]     Replaced load {  %19 = load i32, ptr %7, align 4} with constant {i32 20}
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %22 = load i32, ptr %6, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %22 = load i32, ptr %6, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 %17, ptr %6, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 %22, ptr %2, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %15, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %17, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %9, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 20, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %22, ptr %2, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %15, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %17, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  store i32 100, ptr %2, align 4}
+[constant_propagation, 432]   FOUND STORE INSTRUCTION {  store i32 100, ptr %2, align 4}
+[constant_propagation, 444]   Matching store:   store i32 %15, ptr %3, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %3 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %17, ptr %6, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %6 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 %9, ptr %5, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %5 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 20, ptr %7, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %7 = alloca i32, align 4
+[constant_propagation, 444]   Matching store:   store i32 10, ptr %4, align 4
+[constant_propagation, 448]     Store pointer:   %2 = alloca i32, align 4
+[constant_propagation, 449]     Match pointer:   %4 = alloca i32, align 4
+[constant_propagation, 463]   Printing IN::
+[constant_propagation, 466]     INSTRUCTION: {  store i32 100, ptr %2, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %15, ptr %3, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %17, ptr %6, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 %9, ptr %5, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 20, ptr %7, align 4}
+[constant_propagation, 466]     INSTRUCTION: {  store i32 10, ptr %4, align 4}
+[constant_propagation, 425] CURRENT BASIC BLOCK: {  %25 = load i32, ptr %2, align 4}
+[constant_propagation, 473]   FOUND LOAD INSTRUCTION {  %25 = load i32, ptr %2, align 4}... 
+[constant_propagation, 493]     Inst:   store i32 100, ptr %2, align 4
+[constant_propagation, 493]     Inst:   store i32 %22, ptr %2, align 4
+[constant_propagation, 499]     Not a constant store - breaking
+[constant_propagation, 526] REMOVING 1 INSTRUCTIONS
+[constant_propagation, 532]     Removing instruction {  %19 = load i32, ptr %7, align 4}
+[global_optimizer, 156] change: 1
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %2 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %3 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %4 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %5 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %6 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %7 = alloca i32, align 4
+[subexpr_elim, 587]     Opcode: 26
+[subexpr_elim, 594]     Operand 0: i32 1
+[subexpr_elim, 583] Inst:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %9 = add nsw i32 %8, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %8 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8  %8 = load i32, ptr %3, align 4i32 10 to map
+[subexpr_elim, 583] Inst:   store i32 %9, ptr %5, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %9 = add nsw i32 %8, 10
+[subexpr_elim, 594]     Operand 1:   %5 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   store i32 10, ptr %4, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 10
+[subexpr_elim, 594]     Operand 1:   %4 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %10
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %18
+
+[subexpr_elim, 655] Added 2
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %18
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %2 = alloca i32, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %2 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %3 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %4 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %5 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %6 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %7 = alloca i32, align 4}
+[dead_code_elim, 707]     Operand: {i32 1}
+[dead_code_elim, 697] Instruction: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %8 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %9 = add nsw i32 %8, 10}
+[dead_code_elim, 701]   Found new instruction:   %9 = add nsw i32 %8, 10
+[dead_code_elim, 707]     Operand: {  %8 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %9, ptr %5, align 4}
+[dead_code_elim, 707]     Operand: {  %9 = add nsw i32 %8, 10}
+[dead_code_elim, 707]     Operand: {  %5 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 10, ptr %4, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 707]     Operand: {  %4 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %10}
+[dead_code_elim, 707]     Operand: {
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %18
+}
+[dead_code_elim, 718] Operand:   %9 = add nsw i32 %8, 10, uses: 1
+[dead_code_elim, 718] Operand:   %8 = load i32, ptr %3, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %2 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %3 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %4 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %5 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %6 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %7 = alloca i32, align 4}
+[constant_folding, 787] Instruction: {  %8 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %9 = add nsw i32 %8, 10}
+[constant_folding, 790]   Found binary op:   %9 = add nsw i32 %8, 10
+[constant_folding, 787] Instruction: {  store i32 %9, ptr %5, align 4}
+[constant_folding, 787] Instruction: {  store i32 10, ptr %4, align 4}
+[constant_folding, 787] Instruction: {  br label %10}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %19 = icmp sgt i32 20, 100
+[print_module, 93]     br i1 %19, label %20, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %21 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %21, ptr %2, align 4
+[print_module, 93]     br label %23
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %23
+[print_module, 89] BB: 
+[print_module, 93]     %24 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %24
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %11 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %12 = icmp slt i32 %11, 100
+[subexpr_elim, 587]     Opcode: 42
+[subexpr_elim, 594]     Operand 0:   %11 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 100
+[subexpr_elim, 655] Added 42  %11 = load i32, ptr %3, align 4i32 100 to map
+[subexpr_elim, 583] Inst:   br i1 %12, label %13, label %18
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0:   %12 = icmp slt i32 %11, 100
+[subexpr_elim, 594]     Operand 1: 
+18:                                               ; preds = %10
+  %19 = icmp sgt i32 20, 100
+  br i1 %19, label %20, label %22
+
+[subexpr_elim, 594]     Operand 2: 
+13:                                               ; preds = %10
+  %14 = load i32, ptr %3, align 4
+  %15 = add nsw i32 %14, 5
+  store i32 %15, ptr %3, align 4
+  %16 = load i32, ptr %6, align 4
+  %17 = add nsw i32 %16, 10
+  store i32 %17, ptr %6, align 4
+  store i32 20, ptr %7, align 4
+  br label %10, !llvm.loop !6
+
+[subexpr_elim, 655] Added 2  %12 = icmp slt i32 %11, 100
+18:                                               ; preds = %10
+  %19 = icmp sgt i32 20, 100
+  br i1 %19, label %20, label %22
+
+13:                                               ; preds = %10
+  %14 = load i32, ptr %3, align 4
+  %15 = add nsw i32 %14, 5
+  store i32 %15, ptr %3, align 4
+  %16 = load i32, ptr %6, align 4
+  %17 = add nsw i32 %16, 10
+  store i32 %17, ptr %6, align 4
+  store i32 20, ptr %7, align 4
+  br label %10, !llvm.loop !6
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %11 = load i32, ptr %3, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %11 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %11 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %12 = icmp slt i32 %11, 100}
+[dead_code_elim, 707]     Operand: {  %11 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 100}
+[dead_code_elim, 697] Instruction: {  br i1 %12, label %13, label %18}
+[dead_code_elim, 707]     Operand: {  %12 = icmp slt i32 %11, 100}
+[dead_code_elim, 707]     Operand: {
+18:                                               ; preds = %10
+  %19 = icmp sgt i32 20, 100
+  br i1 %19, label %20, label %22
+}
+[dead_code_elim, 707]     Operand: {
+13:                                               ; preds = %10
+  %14 = load i32, ptr %3, align 4
+  %15 = add nsw i32 %14, 5
+  store i32 %15, ptr %3, align 4
+  %16 = load i32, ptr %6, align 4
+  %17 = add nsw i32 %16, 10
+  store i32 %17, ptr %6, align 4
+  store i32 20, ptr %7, align 4
+  br label %10, !llvm.loop !6
+}
+[dead_code_elim, 718] Operand:   %11 = load i32, ptr %3, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %11 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %12 = icmp slt i32 %11, 100}
+[constant_folding, 790]   Found binary op:   %12 = icmp slt i32 %11, 100
+[constant_folding, 787] Instruction: {  br i1 %12, label %13, label %18}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %19 = icmp sgt i32 20, 100
+[print_module, 93]     br i1 %19, label %20, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %21 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %21, ptr %2, align 4
+[print_module, 93]     br label %23
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %23
+[print_module, 89] BB: 
+[print_module, 93]     %24 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %24
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %14 = load i32, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %3 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %3 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %15 = add nsw i32 %14, 5
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %14 = load i32, ptr %3, align 4
+[subexpr_elim, 594]     Operand 1: i32 5
+[subexpr_elim, 655] Added 8  %14 = load i32, ptr %3, align 4i32 5 to map
+[subexpr_elim, 583] Inst:   store i32 %15, ptr %3, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %15 = add nsw i32 %14, 5
+[subexpr_elim, 594]     Operand 1:   %3 = alloca i32, align 4
+[subexpr_elim, 636] Found store {  store i32 %15, ptr %3, align 4} to load {  %14 = load i32, ptr %3, align 4}, removed load
+[subexpr_elim, 583] Inst:   %16 = load i32, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %6 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %6 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   %17 = add nsw i32 %16, 10
+[subexpr_elim, 587]     Opcode: 8
+[subexpr_elim, 594]     Operand 0:   %16 = load i32, ptr %6, align 4
+[subexpr_elim, 594]     Operand 1: i32 10
+[subexpr_elim, 655] Added 8  %16 = load i32, ptr %6, align 4i32 10 to map
+[subexpr_elim, 583] Inst:   store i32 %17, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %17 = add nsw i32 %16, 10
+[subexpr_elim, 594]     Operand 1:   %6 = alloca i32, align 4
+[subexpr_elim, 636] Found store {  store i32 %17, ptr %6, align 4} to load {  %16 = load i32, ptr %6, align 4}, removed load
+[subexpr_elim, 583] Inst:   store i32 20, ptr %7, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 20
+[subexpr_elim, 594]     Operand 1:   %7 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %10, !llvm.loop !6
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %18
+
+[subexpr_elim, 655] Added 2
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %18
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %14 = load i32, ptr %3, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %14 = load i32, ptr %3, align 4}
+[dead_code_elim, 701]   Found new instruction:   %14 = load i32, ptr %3, align 4
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %15 = add nsw i32 %14, 5}
+[dead_code_elim, 701]   Found new instruction:   %15 = add nsw i32 %14, 5
+[dead_code_elim, 707]     Operand: {  %14 = load i32, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {i32 5}
+[dead_code_elim, 697] Instruction: {  store i32 %15, ptr %3, align 4}
+[dead_code_elim, 707]     Operand: {  %15 = add nsw i32 %14, 5}
+[dead_code_elim, 707]     Operand: {  %3 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %16 = load i32, ptr %6, align 4}
+[dead_code_elim, 701]   Found new instruction:   %16 = load i32, ptr %6, align 4
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  %17 = add nsw i32 %16, 10}
+[dead_code_elim, 701]   Found new instruction:   %17 = add nsw i32 %16, 10
+[dead_code_elim, 707]     Operand: {  %16 = load i32, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {i32 10}
+[dead_code_elim, 697] Instruction: {  store i32 %17, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {  %17 = add nsw i32 %16, 10}
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 20, ptr %7, align 4}
+[dead_code_elim, 707]     Operand: {i32 20}
+[dead_code_elim, 707]     Operand: {  %7 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %10, !llvm.loop !6}
+[dead_code_elim, 707]     Operand: {
+10:                                               ; preds = %13, %1
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp slt i32 %11, 100
+  br i1 %12, label %13, label %18
+}
+[dead_code_elim, 718] Operand:   %17 = add nsw i32 %16, 10, uses: 1
+[dead_code_elim, 718] Operand:   %16 = load i32, ptr %6, align 4, uses: 1
+[dead_code_elim, 718] Operand:   %15 = add nsw i32 %14, 5, uses: 1
+[dead_code_elim, 718] Operand:   %14 = load i32, ptr %3, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %14 = load i32, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %15 = add nsw i32 %14, 5}
+[constant_folding, 790]   Found binary op:   %15 = add nsw i32 %14, 5
+[constant_folding, 787] Instruction: {  store i32 %15, ptr %3, align 4}
+[constant_folding, 787] Instruction: {  %16 = load i32, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  %17 = add nsw i32 %16, 10}
+[constant_folding, 790]   Found binary op:   %17 = add nsw i32 %16, 10
+[constant_folding, 787] Instruction: {  store i32 %17, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  store i32 20, ptr %7, align 4}
+[constant_folding, 787] Instruction: {  br label %10, !llvm.loop !6}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     %19 = icmp sgt i32 20, 100
+[print_module, 93]     br i1 %19, label %20, label %22
+[print_module, 89] BB: 
+[print_module, 93]     %21 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %21, ptr %2, align 4
+[print_module, 93]     br label %23
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %23
+[print_module, 89] BB: 
+[print_module, 93]     %24 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %24
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %19 = icmp sgt i32 20, 100
+[subexpr_elim, 587]     Opcode: 42
+[subexpr_elim, 594]     Operand 0: i32 20
+[subexpr_elim, 594]     Operand 1: i32 100
+[subexpr_elim, 655] Added 42i32 20i32 100 to map
+[subexpr_elim, 583] Inst:   br i1 %19, label %20, label %22
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0:   %19 = icmp sgt i32 20, 100
+[subexpr_elim, 594]     Operand 1: 
+22:                                               ; preds = %18
+  store i32 100, ptr %2, align 4
+  br label %23
+
+[subexpr_elim, 594]     Operand 2: 
+20:                                               ; preds = %18
+  %21 = load i32, ptr %6, align 4
+  store i32 %21, ptr %2, align 4
+  br label %23
+
+[subexpr_elim, 655] Added 2  %19 = icmp sgt i32 20, 100
+22:                                               ; preds = %18
+  store i32 100, ptr %2, align 4
+  br label %23
+
+20:                                               ; preds = %18
+  %21 = load i32, ptr %6, align 4
+  store i32 %21, ptr %2, align 4
+  br label %23
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %19 = icmp sgt i32 20, 100
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %19 = icmp sgt i32 20, 100}
+[dead_code_elim, 707]     Operand: {i32 20}
+[dead_code_elim, 707]     Operand: {i32 100}
+[dead_code_elim, 697] Instruction: {  br i1 %19, label %20, label %22}
+[dead_code_elim, 707]     Operand: {  %19 = icmp sgt i32 20, 100}
+[dead_code_elim, 707]     Operand: {
+22:                                               ; preds = %18
+  store i32 100, ptr %2, align 4
+  br label %23
+}
+[dead_code_elim, 707]     Operand: {
+20:                                               ; preds = %18
+  %21 = load i32, ptr %6, align 4
+  store i32 %21, ptr %2, align 4
+  br label %23
+}
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %19 = icmp sgt i32 20, 100}
+[constant_folding, 790]   Found binary op:   %19 = icmp sgt i32 20, 100
+[constant_folding, 797] WE HAVE TWO CONSTANTS
+[constant_folding, 816]     Comparing i32 20 and i32 100
+[constant_folding, 787] Instruction: {  br i1 false, label %20, label %22}
+[local_optimizer, 137] change: 1
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     br i1 false, label %19, label %21
+[print_module, 89] BB: 
+[print_module, 93]     %20 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %20, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %23
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   br i1 false, label %19, label %21
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: i1 false
+[subexpr_elim, 594]     Operand 1: 
+21:                                               ; preds = %18
+  store i32 100, ptr %2, align 4
+  br label %22
+
+[subexpr_elim, 594]     Operand 2: 
+19:                                               ; preds = %18
+  %20 = load i32, ptr %6, align 4
+  store i32 %20, ptr %2, align 4
+  br label %22
+
+[subexpr_elim, 655] Added 2i1 false
+21:                                               ; preds = %18
+  store i32 100, ptr %2, align 4
+  br label %22
+
+19:                                               ; preds = %18
+  %20 = load i32, ptr %6, align 4
+  store i32 %20, ptr %2, align 4
+  br label %22
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   br i1 false, label %19, label %21
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  br i1 false, label %19, label %21}
+[dead_code_elim, 707]     Operand: {i1 false}
+[dead_code_elim, 707]     Operand: {
+21:                                               ; preds = %18
+  store i32 100, ptr %2, align 4
+  br label %22
+}
+[dead_code_elim, 707]     Operand: {
+19:                                               ; preds = %18
+  %20 = load i32, ptr %6, align 4
+  store i32 %20, ptr %2, align 4
+  br label %22
+}
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  br i1 false, label %19, label %21}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     br i1 false, label %19, label %21
+[print_module, 89] BB: 
+[print_module, 93]     %20 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %20, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %23
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %20 = load i32, ptr %6, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %6 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %6 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   store i32 %20, ptr %2, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0:   %20 = load i32, ptr %6, align 4
+[subexpr_elim, 594]     Operand 1:   %2 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %22
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+22:                                               ; preds = %21, %19
+  %23 = load i32, ptr %2, align 4
+  ret i32 %23
+
+[subexpr_elim, 655] Added 2
+22:                                               ; preds = %21, %19
+  %23 = load i32, ptr %2, align 4
+  ret i32 %23
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %20 = load i32, ptr %6, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %20 = load i32, ptr %6, align 4}
+[dead_code_elim, 701]   Found new instruction:   %20 = load i32, ptr %6, align 4
+[dead_code_elim, 707]     Operand: {  %6 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  store i32 %20, ptr %2, align 4}
+[dead_code_elim, 707]     Operand: {  %20 = load i32, ptr %6, align 4}
+[dead_code_elim, 707]     Operand: {  %2 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %22}
+[dead_code_elim, 707]     Operand: {
+22:                                               ; preds = %21, %19
+  %23 = load i32, ptr %2, align 4
+  ret i32 %23
+}
+[dead_code_elim, 718] Operand:   %20 = load i32, ptr %6, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %20 = load i32, ptr %6, align 4}
+[constant_folding, 787] Instruction: {  store i32 %20, ptr %2, align 4}
+[constant_folding, 787] Instruction: {  br label %22}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     br i1 false, label %19, label %21
+[print_module, 89] BB: 
+[print_module, 93]     %20 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %20, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %23
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   store i32 100, ptr %2, align 4
+[subexpr_elim, 587]     Opcode: 28
+[subexpr_elim, 594]     Operand 0: i32 100
+[subexpr_elim, 594]     Operand 1:   %2 = alloca i32, align 4
+[subexpr_elim, 583] Inst:   br label %22
+[subexpr_elim, 587]     Opcode: 2
+[subexpr_elim, 594]     Operand 0: 
+22:                                               ; preds = %21, %19
+  %23 = load i32, ptr %2, align 4
+  ret i32 %23
+
+[subexpr_elim, 655] Added 2
+22:                                               ; preds = %21, %19
+  %23 = load i32, ptr %2, align 4
+  ret i32 %23
+ to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   store i32 100, ptr %2, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  store i32 100, ptr %2, align 4}
+[dead_code_elim, 707]     Operand: {i32 100}
+[dead_code_elim, 707]     Operand: {  %2 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  br label %22}
+[dead_code_elim, 707]     Operand: {
+22:                                               ; preds = %21, %19
+  %23 = load i32, ptr %2, align 4
+  ret i32 %23
+}
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  store i32 100, ptr %2, align 4}
+[constant_folding, 787] Instruction: {  br label %22}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     br i1 false, label %19, label %21
+[print_module, 89] BB: 
+[print_module, 93]     %20 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %20, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %23
+[subexpr_elim, 571] BEGINNING SUBEXPR ELIM
+[subexpr_elim, 572] ====================================================
+
+[subexpr_elim, 583] Inst:   %23 = load i32, ptr %2, align 4
+[subexpr_elim, 587]     Opcode: 27
+[subexpr_elim, 594]     Operand 0:   %2 = alloca i32, align 4
+[subexpr_elim, 625]      Added {27  %2 = alloca i32, align 4} to map
+[subexpr_elim, 583] Inst:   ret i32 %23
+[subexpr_elim, 587]     Opcode: 1
+[subexpr_elim, 594]     Operand 0:   %23 = load i32, ptr %2, align 4
+[subexpr_elim, 655] Added 1  %23 = load i32, ptr %2, align 4 to map
+[subexpr_elim, 659] change: 0
+[local_optimizer, 133] change: 0
+[dead_code_elim, 674] 
+
+BEGINNING DEAD CODE ELIM FOR BB:   %23 = load i32, ptr %2, align 4
+[dead_code_elim, 675] ====================================================
+
+
+[dead_code_elim, 697] Instruction: {  %23 = load i32, ptr %2, align 4}
+[dead_code_elim, 701]   Found new instruction:   %23 = load i32, ptr %2, align 4
+[dead_code_elim, 707]     Operand: {  %2 = alloca i32, align 4}
+[dead_code_elim, 697] Instruction: {  ret i32 %23}
+[dead_code_elim, 707]     Operand: {  %23 = load i32, ptr %2, align 4}
+[dead_code_elim, 718] Operand:   %23 = load i32, ptr %2, align 4, uses: 1
+[local_optimizer, 135] change: 0
+[constant_folding, 772] 
+
+BEGINNING CONSTANT FOLDING
+[constant_folding, 773] ====================================================
+
+
+[constant_folding, 787] Instruction: {  %23 = load i32, ptr %2, align 4}
+[constant_folding, 787] Instruction: {  ret i32 %23}
+[local_optimizer, 137] change: 0
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     br i1 false, label %19, label %21
+[print_module, 89] BB: 
+[print_module, 93]     %20 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %20, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %23
+[print_module, 84] 
+====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     br i1 false, label %19, label %21
+[print_module, 89] BB: 
+[print_module, 93]     %20 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %20, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %23
+[print_module, 103] 
+====================================================
+
+ORIGINAL MODULE
+
+====================================================
+
+[print_module, 109] BB: 
+[print_module, 113]     %2 = alloca i32, align 4
+[print_module, 113]     %3 = alloca i32, align 4
+[print_module, 113]     %4 = alloca i32, align 4
+[print_module, 113]     %5 = alloca i32, align 4
+[print_module, 113]     %6 = alloca i32, align 4
+[print_module, 113]     %7 = alloca i32, align 4
+[print_module, 113]     store i32 %0, ptr %3, align 4
+[print_module, 113]     store i32 10, ptr %6, align 4
+[print_module, 113]     %8 = load i32, ptr %3, align 4
+[print_module, 113]     %9 = add nsw i32 %8, 10
+[print_module, 113]     store i32 %9, ptr %4, align 4
+[print_module, 113]     %10 = load i32, ptr %3, align 4
+[print_module, 113]     %11 = load i32, ptr %6, align 4
+[print_module, 113]     %12 = add nsw i32 %10, %11
+[print_module, 113]     store i32 %12, ptr %5, align 4
+[print_module, 113]     %13 = load i32, ptr %4, align 4
+[print_module, 113]     %14 = load i32, ptr %5, align 4
+[print_module, 113]     %15 = add nsw i32 15, 5
+[print_module, 113]     store i32 %15, ptr %7, align 4
+[print_module, 113]     store i32 10, ptr %4, align 4
+[print_module, 113]     br label %16
+[print_module, 109] BB: 
+[print_module, 113]     %17 = load i32, ptr %3, align 4
+[print_module, 113]     %18 = icmp slt i32 %17, 100
+[print_module, 113]     br i1 %18, label %19, label %26
+[print_module, 109] BB: 
+[print_module, 113]     %20 = load i32, ptr %3, align 4
+[print_module, 113]     %21 = add nsw i32 %20, 5
+[print_module, 113]     store i32 %21, ptr %3, align 4
+[print_module, 113]     %22 = load i32, ptr %6, align 4
+[print_module, 113]     %23 = add nsw i32 %22, 10
+[print_module, 113]     store i32 %23, ptr %6, align 4
+[print_module, 113]     %24 = load i32, ptr %4, align 4
+[print_module, 113]     %25 = add nsw i32 %24, 10
+[print_module, 113]     store i32 %25, ptr %7, align 4
+[print_module, 113]     br label %16, !llvm.loop !6
+[print_module, 109] BB: 
+[print_module, 113]     %27 = load i32, ptr %7, align 4
+[print_module, 113]     %28 = icmp sgt i32 %27, 100
+[print_module, 113]     br i1 %28, label %29, label %31
+[print_module, 109] BB: 
+[print_module, 113]     %30 = load i32, ptr %6, align 4
+[print_module, 113]     store i32 %30, ptr %2, align 4
+[print_module, 113]     br label %32
+[print_module, 109] BB: 
+[print_module, 113]     store i32 100, ptr %2, align 4
+[print_module, 113]     br label %32
+[print_module, 109] BB: 
+[print_module, 113]     %33 = load i32, ptr %2, align 4
+[print_module, 113]     ret i32 %33

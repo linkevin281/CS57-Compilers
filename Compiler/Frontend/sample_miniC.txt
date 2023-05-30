@@ -1,0 +1,154 @@
+extern void (int); 
+extern int ();
+
+int (int ){ 
+
+        int ;
+        int ;
+        int ;
+        int ;
+
+         =  + ; 
+         =  * ; 
+
+        if ( > ) {
+                int ; 
+                (); 
+                 = ;
+                if ( > ) {
+                        ();
+                }
+                else {
+                        ();
+                }
+        }
+        else
+                ();
+                 = ;
+                 = ;
+        while ( < ){
+                int ;
+                 =  + ;
+                 =  + ;
+                 = ;
+        }
+
+        return( + );
+}
+AST: ======================
+Prog:
+ Func: func
+  Var: a
+  Stmt: 
+   Block:
+    Stmt: 
+     Decl: loc1
+    Stmt: 
+     Decl: loc2
+    Stmt: 
+     Decl: i
+    Stmt: 
+     Decl: j
+    Stmt: 
+     Asgn: lhs
+      Var: loc1
+     Asgn: rhs
+      BExpr: 
+       Var: a
+       Const: 10
+    Stmt: 
+     Asgn: lhs
+      Var: loc2
+     Asgn: rhs
+      BExpr: 
+       Var: a
+       Const: 10
+    Stmt: 
+     If: cond
+      RExpr: 
+       Var: loc1
+       Var: loc2
+     If: body
+      Stmt: 
+       Block:
+        Stmt: 
+         Decl: b
+        Stmt: 
+         Call: name Print
+         Call: param
+          Var: loc1
+        Stmt: 
+         Asgn: lhs
+          Var: a
+         Asgn: rhs
+          Const: 0
+        Stmt: 
+         If: cond
+          RExpr: 
+           Var: a
+           Const: 0
+         If: body
+          Stmt: 
+           Block:
+            Stmt: 
+             Call: name Print
+             Call: param
+              Var: a
+         Else: body
+          Stmt: 
+           Block:
+            Stmt: 
+             Call: name Print
+             Call: param
+              Var: loc2
+     Else: body
+      Stmt: 
+       Call: name Print
+       Call: param
+        Var: loc2
+    Stmt: 
+     Asgn: lhs
+      Var: i
+     Asgn: rhs
+      Const: 0
+    Stmt: 
+     Asgn: lhs
+      Var: b
+     Asgn: rhs
+      Const: 0
+    Stmt: 
+     While: cond 
+      RExpr: 
+       Var: i
+       Var: loc1
+     While: body 
+      Stmt: 
+       Block:
+        Stmt: 
+         Decl: j
+        Stmt: 
+         Asgn: lhs
+          Var: i
+         Asgn: rhs
+          BExpr: 
+           Var: i
+           Const: 1
+        Stmt: 
+         Asgn: lhs
+          Var: j
+         Asgn: rhs
+          BExpr: 
+           Var: loc2
+           Var: i
+        Stmt: 
+         Asgn: lhs
+          Var: loc2
+         Asgn: rhs
+          Var: j
+    Stmt: 
+     Ret:
+      BExpr: 
+       Var: loc1
+       Var: loc2
+Semantic Analysis: ======================
+RESULT: =======Errors found=======
