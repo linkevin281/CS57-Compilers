@@ -10,8 +10,11 @@
 #include <string>
 #include <stdio.h>
 
+
+// DEBUG MACROS // 
+
 #define DEBUG1(...)                                  \
-    if (verbose && DEB == 0)                         \
+    if (verbose && DEB == 1)                         \
     {                                                \
         printf("[%s, %d] ", __FUNCTION__, __LINE__); \
         printf(__VA_ARGS__);                         \
@@ -65,7 +68,7 @@ void SortInstructions();
 
 void HandleRet(LLVMValueRef inst);
 void HandleLoad(LLVMValueRef inst);
-void HandleStore(LLVMValueRef inst);
+void HandleStore(LLVMValueRef inst, LLVMValueRef func_parameter);
 void HandleCall(LLVMValueRef inst, LLVMValueRef func);
 void HandleBr(LLVMValueRef inst);
 void HandleAlloca(LLVMValueRef inst);
@@ -145,9 +148,8 @@ void RegisterAllocation(LLVMModuleRef module)
             ComputeLiveness(bb);
             SortInstructions();
 
-            for (std::pair<LLVMValueRef, std::pair<int, int>> range : live_range)
+            for (LLVMValueRef inst = LLVMGetFirstInstruction(bb); inst != NULL; inst = LLVMGetNextInstruction(inst))
             {
-                LLVMValueRef inst = range.first;
                 DEBUG1("Instruction:%s\n", LLVMPrintValueToString(inst));
                 // for debug
                 if (strcmp(LLVMPrintValueToString(inst), "  %7 = load i32, ptr %4, align 4") == 0)
@@ -159,33 +161,27 @@ void RegisterAllocation(LLVMModuleRef module)
                 {
                     continue;
                 }
-
                 // If inst does not have a LHS (store, branch, call)
-                else if (non_lhs_op.find(LLVMGetInstructionOpcode(inst)) == non_lhs_op.end())
+                else if (non_lhs_op.find(LLVMGetInstructionOpcode(inst)) != non_lhs_op.end())
                 {
                     for (int i = 0; i < LLVMGetNumOperands(inst); i++)
                     {
                         LLVMValueRef operand = LLVMGetOperand(inst, i);
-                        if (strcmp(LLVMPrintValueToString(operand), "  %7 = load i32, ptr %4, align 4") == 0)
-                        {
-                            DEBUG1("   elseif      FOUND   %%7 = load i32, ptr %%4, align 4\n");
-                        }
                         if (live_range[operand].second == inst_index[inst])
                         {
                             if (reg_map.find(operand) != reg_map.end())
                             {
                                 reg_set[reg_map[operand]] = false;
-                                if (strcmp(LLVMPrintValueToString(operand), "  %7 = load i32, ptr %4, align 4") == 0)
-                                {
-                                    DEBUG1("       set to false   %%7 = load i32, ptr %%4, align 4\n");
-                                }
                             }
                         }
                     }
                 }
-
                 else
                 {
+                    if (strcmp(LLVMPrintValueToString(inst), "  %7 = load i32, ptr %4, align 4") == 0)
+                    {
+                        DEBUG1("   inelse      FOUND   %%7 = load i32, ptr %%4, align 4\n");
+                    }
                     // Check for empty registers and assign first empty reg
                     std::string empty_reg = "";
                     for (std::pair<std::string, bool> reg : reg_set)
@@ -218,7 +214,6 @@ void RegisterAllocation(LLVMModuleRef module)
                             }
                         }
                     }
-
                     // Found a register open
                     else if (empty_reg != "")
                     {
@@ -239,7 +234,6 @@ void RegisterAllocation(LLVMModuleRef module)
                             }
                         }
                     }
-
                     // No register is available
                     else
                     {
@@ -308,12 +302,21 @@ void Codegen(LLVMModuleRef module)
         PrintDirectives(func);
         GetOffsetMap(func);
 
+        LLVMValueRef func_parameter;
+        if (LLVMCountParams(func) > 0)
+        {
+            func_parameter = LLVMGetFirstParam(func);
+        }
+
         for (LLVMBasicBlockRef bb = LLVMGetFirstBasicBlock(func); bb != NULL; bb = LLVMGetNextBasicBlock(bb))
         {
             DEBUG1("BB: %s\n", LLVMPrintValueToString(LLVMGetFirstInstruction(bb)));
+            DEBUG3("BB: %s\n", LLVMPrintValueToString(LLVMGetFirstInstruction(bb)));
+
             for (LLVMValueRef inst = LLVMGetFirstInstruction(bb); inst != NULL; inst = LLVMGetNextInstruction(inst))
             {
                 DEBUG1("  Handling Inst: {%s},\n", LLVMPrintValueToString(inst));
+                DEBUG3("  Handling Inst: {%s},\n", LLVMPrintValueToString(inst));
 
                 switch (LLVMGetInstructionOpcode(inst))
                 {
@@ -324,7 +327,7 @@ void Codegen(LLVMModuleRef module)
                     HandleLoad(inst);
                     break;
                 case LLVMStore:
-                    HandleStore(inst);
+                    HandleStore(inst, func_parameter);
                     break;
                 case LLVMCall:
                     HandleCall(inst, func);
@@ -415,7 +418,7 @@ void GetOffsetMap(LLVMValueRef func)
     }
 }
 
-//
+// EMIT directives for function and push %ebp and update %esp
 void PrintDirectives(LLVMValueRef func)
 {
     EMIT("\t.text");
@@ -427,6 +430,7 @@ void PrintDirectives(LLVMValueRef func)
     EMIT("\tsubl $%d, %%esp", stack_offset);
 }
 
+// EMIT assembly insructions to resture stack and return
 void PrintFunctionEnd()
 {
     EMIT("\t movl %%ebp, %%esp");
@@ -435,6 +439,7 @@ void PrintFunctionEnd()
     EMIT("\tret");
 }
 
+// Ex. {ret i32 A}
 void HandleRet(LLVMValueRef inst)
 {
     LLVMValueRef return_var = LLVMGetOperand(inst, 0);
@@ -456,11 +461,11 @@ void HandleRet(LLVMValueRef inst)
     }
     PrintFunctionEnd();
 }
+
+// Ex. {%a = load i32, i32* %b}
 void HandleLoad(LLVMValueRef inst)
 {
     LLVMValueRef load_from = LLVMGetOperand(inst, 0);
-
-    print_reg_mem();
 
     if (reg_map.find(inst) != reg_map.end() && reg_map[inst] != "-1")
     {
@@ -471,13 +476,14 @@ void HandleLoad(LLVMValueRef inst)
 }
 
 // Ex. {store i32 store_var, i32* %store_to}
-void HandleStore(LLVMValueRef inst)
+void HandleStore(LLVMValueRef inst, LLVMValueRef func_parameter)
 {
+    print_reg_mem();
 
     LLVMValueRef store_var = LLVMGetOperand(inst, 0);
 
     // if first operand is a parameter
-    if (reg_map.find(inst) == reg_map.end())
+    if (func_parameter == store_var)
     {
         DEBUG1("  First instruction is a parameter, returning\n")
         return;
@@ -698,6 +704,7 @@ void HandleArith(LLVMValueRef inst)
     }
 }
 
+// Helper print function for reg_map
 void print_reg_mem()
 {
     for (auto const &x : reg_map)

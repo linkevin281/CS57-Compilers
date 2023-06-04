@@ -1,0 +1,101 @@
+ ====================================================
+
+OPTIMIZED MODULE
+
+====================================================
+
+[print_module, 89] BB: 
+[print_module, 93]     %2 = alloca i32, align 4
+[print_module, 93]     %3 = alloca i32, align 4
+[print_module, 93]     %4 = alloca i32, align 4
+[print_module, 93]     %5 = alloca i32, align 4
+[print_module, 93]     %6 = alloca i32, align 4
+[print_module, 93]     %7 = alloca i32, align 4
+[print_module, 93]     %8 = load i32, ptr %3, align 4
+[print_module, 93]     %9 = add nsw i32 %8, 10
+[print_module, 93]     store i32 %9, ptr %5, align 4
+[print_module, 93]     store i32 10, ptr %4, align 4
+[print_module, 93]     br label %10
+[print_module, 89] BB: 
+[print_module, 93]     %11 = load i32, ptr %3, align 4
+[print_module, 93]     %12 = icmp slt i32 %11, 100
+[print_module, 93]     br i1 %12, label %13, label %18
+[print_module, 89] BB: 
+[print_module, 93]     %14 = load i32, ptr %3, align 4
+[print_module, 93]     %15 = add nsw i32 %14, 5
+[print_module, 93]     store i32 %15, ptr %3, align 4
+[print_module, 93]     %16 = load i32, ptr %6, align 4
+[print_module, 93]     %17 = add nsw i32 %16, 10
+[print_module, 93]     store i32 %17, ptr %6, align 4
+[print_module, 93]     store i32 20, ptr %7, align 4
+[print_module, 93]     br label %10, !llvm.loop !6
+[print_module, 89] BB: 
+[print_module, 93]     br i1 false, label %19, label %21
+[print_module, 89] BB: 
+[print_module, 93]     %20 = load i32, ptr %6, align 4
+[print_module, 93]     store i32 %20, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     store i32 100, ptr %2, align 4
+[print_module, 93]     br label %22
+[print_module, 89] BB: 
+[print_module, 93]     %23 = load i32, ptr %2, align 4
+[print_module, 93]     ret i32 %23
+[print_module, 103] 
+====================================================
+
+ORIGINAL MODULE
+
+====================================================
+
+[print_module, 109] BB: 
+[print_module, 113]     %2 = alloca i32, align 4
+[print_module, 113]     %3 = alloca i32, align 4
+[print_module, 113]     %4 = alloca i32, align 4
+[print_module, 113]     %5 = alloca i32, align 4
+[print_module, 113]     %6 = alloca i32, align 4
+[print_module, 113]     %7 = alloca i32, align 4
+[print_module, 113]     store i32 %0, ptr %3, align 4
+[print_module, 113]     store i32 10, ptr %6, align 4
+[print_module, 113]     %8 = load i32, ptr %3, align 4
+[print_module, 113]     %9 = add nsw i32 %8, 10
+[print_module, 113]     store i32 %9, ptr %4, align 4
+[print_module, 113]     %10 = load i32, ptr %3, align 4
+[print_module, 113]     %11 = load i32, ptr %6, align 4
+[print_module, 113]     %12 = add nsw i32 %10, %11
+[print_module, 113]     store i32 %12, ptr %5, align 4
+[print_module, 113]     %13 = load i32, ptr %4, align 4
+[print_module, 113]     %14 = load i32, ptr %5, align 4
+[print_module, 113]     %15 = add nsw i32 15, 5
+[print_module, 113]     store i32 %15, ptr %7, align 4
+[print_module, 113]     store i32 10, ptr %4, align 4
+[print_module, 113]     br label %16
+[print_module, 109] BB: 
+[print_module, 113]     %17 = load i32, ptr %3, align 4
+[print_module, 113]     %18 = icmp slt i32 %17, 100
+[print_module, 113]     br i1 %18, label %19, label %26
+[print_module, 109] BB: 
+[print_module, 113]     %20 = load i32, ptr %3, align 4
+[print_module, 113]     %21 = add nsw i32 %20, 5
+[print_module, 113]     store i32 %21, ptr %3, align 4
+[print_module, 113]     %22 = load i32, ptr %6, align 4
+[print_module, 113]     %23 = add nsw i32 %22, 10
+[print_module, 113]     store i32 %23, ptr %6, align 4
+[print_module, 113]     %24 = load i32, ptr %4, align 4
+[print_module, 113]     %25 = add nsw i32 %24, 10
+[print_module, 113]     store i32 %25, ptr %7, align 4
+[print_module, 113]     br label %16, !llvm.loop !6
+[print_module, 109] BB: 
+[print_module, 113]     %27 = load i32, ptr %7, align 4
+[print_module, 113]     %28 = icmp sgt i32 %27, 100
+[print_module, 113]     br i1 %28, label %29, label %31
+[print_module, 109] BB: 
+[print_module, 113]     %30 = load i32, ptr %6, align 4
+[print_module, 113]     store i32 %30, ptr %2, align 4
+[print_module, 113]     br label %32
+[print_module, 109] BB: 
+[print_module, 113]     store i32 100, ptr %2, align 4
+[print_module, 113]     br label %32
+[print_module, 109] BB: 
+[print_module, 113]     %33 = load i32, ptr %2, align 4
+[print_module, 113]     ret i32 %33
